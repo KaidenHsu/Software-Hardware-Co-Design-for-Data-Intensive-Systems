@@ -102,6 +102,8 @@ $ make clean
 
 The core operation is Compressed Sparse Row (CSR) sparse matrix-vector multiplication (SpMV).
 
+<p align="center"><img src="images/CSR_SpMV.png" alt="workload" /></p>
+
 ```cpp
 #if defined(__GNUC__) || defined(__clang__)
 __attribute__((noinline))
