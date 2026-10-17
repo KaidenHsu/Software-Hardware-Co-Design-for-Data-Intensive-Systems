@@ -436,6 +436,21 @@ different views of the same behavior. They should not be expected to produce
 identical absolute counts because they measure different scopes and use
 different sampling or counting mechanisms.
 
+### 8.4 Profiling Methods Comparison
+
+- **`std::chrono::steady_clock`:** Used for primary timing because it provides
+  a monotonic elapsed-time measurement around only the repeated SpMV calls,
+  making throughput metrics such as milliseconds per iteration and nanoseconds
+  per nonzero straightforward to calculate.
+- **`KernelPMU`:** Enabled when the experiment needs hardware cycles,
+  instructions, cache misses, IPC, and counter scope limited to the timed
+  kernel rather than setup or verification.
+- **Linux `perf`:** Retained as an independent system-level view. `perf stat`
+  checks process-wide event counts across repeated runs, while `perf record`
+  and `perf report` reveal sampled call-stack hotspots. Together, these tools
+  relate user-visible runtime to hardware activity and likely code locations
+  without treating any single measurement as a complete explanation.
+
 ## 9. Conclusion
 
 The project demonstrates how two CSR SpMV executions can be mathematically
@@ -450,7 +465,11 @@ The col16 experiment further shows how increasing the input-vector footprint
 can amplify memory-system effects without changing the number of nonzeros or
 the amount of arithmetic performed by the kernel.
 
-Using `make` for builds and `run.sh` for execution makes the experiments
-repeatable. The generated logs preserve the commands, correctness results,
-timings, PMU measurements, and Linux `perf` reports needed to inspect and
-compare the runs.
+Going forward, profile each implementation under the same build, input, and
+system conditions. Always run the kernel once before profiling to warm up
+first-use code paths and reduce cold-start bias, then verify correctness before
+trusting performance results. Use Linux `perf` to examine cycles, instructions,
+IPC, cache behavior, and branch or memory-related events together rather than
+relying on a single metric. Repeat each run enough to distinguish stable effects
+from measurement noise, and retain the command lines and raw reports so later
+comparisons remain auditable.
