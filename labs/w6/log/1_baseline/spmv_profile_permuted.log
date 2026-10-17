@@ -1,0 +1,5 @@
+$ /home/kaiden/HwSwCoDesign/w6/build/spmv_profile --pattern permuted --rows 65536 --nnz-per-row 8 --iters 500
+
+CORRECT=PASS pattern=permuted rows=65536 ncols=262144 nnz=524288 iters=500 checksum=727476.546875
+setup_s=0.008419 timed_kernel_s=0.389199 ms_per_iter=0.778398 ns_per_nnz=1.484677
+NOTICE: kernel_s excludes setup/verification, but perf stat of the whole process includes them. Increase iters to amortize overhead.

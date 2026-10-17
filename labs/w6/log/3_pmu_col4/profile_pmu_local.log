@@ -1,0 +1,7 @@
+$ /home/kaiden/HwSwCoDesign/w6/build/spmv_profile_pmu_col4 --pmu --pattern local --rows 65536 --nnz-per-row 8 --iters 500
+
+CORRECT=PASS pattern=local rows=65536 ncols=262144 nnz=524288 iters=500 checksum=727476.546875
+setup_s=0.006678 timed_kernel_s=0.169460 ms_per_iter=0.338920 ns_per_nnz=0.646439
+NOTICE: kernel_s excludes setup/verification, but perf stat of the whole process includes them. Increase iters to amortize overhead.
+PMU_STATUS=OK PMU_SCOPE=timed_spmv_loop_user_only cycles=658793136 instructions=2261009402 cache_misses=7127 ipc=3.432048 running_fraction=1.000000
+PMU_NOTICE=cache_misses is CPU-dependent, not necessarily DRAM traffic
