@@ -14,7 +14,7 @@ Labs | Description
 
 Projects | Description
 --------|:--------
-[Project 3][2-3]| CSR SpMV: Profiling the Impact of Memory Access Locality
+[Project 3][2-3]| CSR SpMM: Profiling the Impact of Memory Access Locality
 
 [2-3]: projects/project3/
 
