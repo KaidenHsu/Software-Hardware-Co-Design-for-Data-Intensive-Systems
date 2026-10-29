@@ -15,7 +15,7 @@ LAYOUT_ORACLE=PASS checksum=386050.195312
 VALIDATION=PASS (PMU hardware availability must be checked on target CPU)
 ```
 
-## 3. Workload
+## 3. Workload: Compressed Sparse Row Sparse-Dense Matrix Multiplication
 
 In the function `csr_spmm()` in `SpMM_GNN_Aggregation_Benchmark.cpp`. This project benchmarks the weighted aggregation
 
