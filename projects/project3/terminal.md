@@ -1,0 +1,45 @@
+```bash
+$ g++ -O3 -g -fno-omit-frame-pointer -std=c++17 -Wall -Wextra -Wpedantic -Werror src/SpMM_GNN_Aggregation_Benchmark.cpp -o build/spmm_gnn
+```
+
+```bash
+$ python3 Verify_Benchmark.py
+SELFTEST=PASS
+LAYOUT_ORACLE=PASS checksum=386050.195312
+VALIDATION=PASS (PMU hardware availability must be checked on target CPU)
+```
+
+```bash
+$ ./build/spmm_gnn --selftest
+SELFTEST=PASS CSR_SPMM_ORACLE=PASS
+```
+
+```bash
+$ ./build/spmm_gnn --pattern local --rows 32768 --nnz-per-row 8 --features 32 --iters 100
+CORRECT=PASS kernel=SpMM pattern=local rows=32768 ncols=131072 nnz=262144 features=32 iters=100 checksum=6176778.953125
+setup_s=0.028128 timed_kernel_s=0.360117 ms_per_iter=3.601173 ns_per_edge_feature=0.429293 feature_table_MiB=32.000000
+```
+
+```bash
+$ ./build/spmm_gnn --pattern permuted --rows 32768 --nnz-per-row 8 --features 32 --iters 100
+CORRECT=PASS kernel=SpMM pattern=permuted rows=32768 ncols=131072 nnz=262144 features=32 iters=100 checksum=6176778.953125
+setup_s=0.048622 timed_kernel_s=0.785908 ms_per_iter=7.859080 ns_per_edge_feature=0.936875 feature_table_MiB=32.000000
+```
+
+```bash
+$ python3 src/memory_footprint.py
+row_ptr :      262,152 bytes (0.250008 MiB)
+col_idx :    1,048,576 bytes (1.000000 MiB)
+values  :    2,097,152 bytes (2.000000 MiB)
+X       :   33,554,432 bytes (32.000000 MiB)
+Y       :    8,388,608 bytes (8.000000 MiB)
+expected:    8,388,608 bytes (8.000000 MiB)
+Total   :   53,739,528 bytes (51.250008 MiB)
+```
+
+```bash
+$ sha256sum src/SpMM_GNN_Aggregation_Benchmark.cpp src/di_common.hpp src/di_kernel_pmu.hpp
+2d1ef7870f17a1ed60777324eb3540957c2cab63c87f974785543e830e1d3035  src/SpMM_GNN_Aggregation_Benchmark.cpp
+0d84f6d46528b852a19f42109fa5a47a6e21a6d61ff9e0b2e038c4f23b521f4e  src/di_common.hpp
+ec574f5826841e5d3f6aeb3d62070bbb7d445e72606f80418a4373f08f7e4ab7  src/di_kernel_pmu.hpp
+```

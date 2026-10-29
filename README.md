@@ -6,8 +6,16 @@
 
 Labs | Description
 --------|:--------
-[W6 Lab][1]| CSR SpMV: Profiling the Impact of Memory Access Locality
+[W6 Lab][1-1]| CSR SpMV: Profiling the Impact of Memory Access Locality
 
-[1]: labs/w6/
+[1-1]: labs/w6/
+
+## Projects
+
+Projects | Description
+--------|:--------
+[Project 3][2-3]| CSR SpMV: Profiling the Impact of Memory Access Locality
+
+[2-3]: projects/project3/
 
 <p align="center"><img src="images/banner.png" alt="banner" /></p>
