@@ -222,7 +222,7 @@ The benefit is not guaranteed. For example, if the feature table and the set of 
 
 ## 9. Propose a Falsifiable Reuse Hypothesis
 
-<p align="center"><img src="images/csr.png" alt="csr" /></p>
+<p align="center"><img src="images/CSR.png" alt="csr" /></p>
 
 **hypothesis:** for the fixed baseline workload, the local layout will have lower kernel time and lower time per edge-feature than the permuted layout because nearby neighbor references reuse cache lines from nearby rows of $x$. the implementation, input, machine state, timed region, correctness checks, and statistical procedure must remain fixed; both layouts must perform identical work and pass the same oracle; and performance evidence must distinguish memory pressure from front-end or core-bound limitations.
 
