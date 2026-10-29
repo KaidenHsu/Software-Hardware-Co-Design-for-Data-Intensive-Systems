@@ -17,46 +17,7 @@ VALIDATION=PASS (PMU hardware availability must be checked on target CPU)
 
 ## 3. Workload
 
-``` C
-static void csr_spmm(
-    // sparse CSR matrix A
-    // dimension = rp.size()-1  x  x.size()/features
-    const std::vector<std::size_t>& rp, // row ptrs of sparse matrix A
-    const std::vector<std::uint32_t>& ci, // col idx of sparse matrix A
-    const std::vector<double>& val, // values of sparse matrix A
-
-    // input matrix x
-    // dimension = x.size()/features x features
-    const std::vector<double>& x,
-    // output matrix y
-    // dimension = ( rp.size()-1 x features ) x features
-    std::vector<double>& y,
-
-    std::size_t features // #(values in each row of x)
-) {
-
-    // One output row per sparse row; rp has an extra end pointer.
-    for (std::size_t r = 0; r + 1 < rp.size(); ++r) {
-        // Each invocation overwrites Y rather than accumulating prior results.
-        // Row-major storage: row r starts at flat offset r * features.
-        double* out = &y[r * features];
-        for (std::size_t f = 0; f < features; ++f) out[f] = 0;
-
-        // CSR entries for row r occupy [rp[r], rp[r + 1]); zeros are skipped.
-        for (std::size_t k = rp[r]; k < rp[r + 1]; ++k) {
-            // ci[k] selects a row of X; val[k] is A[r, ci[k]].
-            const double* in = &x[static_cast<std::size_t>(ci[k]) * features];
-            const double weight = val[k];
-
-            // Add weighted features: Y[r,f] += A[r,c] * X[c,f], c = ci[k].
-            // Features within a row are contiguous even in permuted mode.
-            for (std::size_t f = 0; f < features; ++f) out[f] += weight * in[f];
-        }
-    }
-}
-```
-
-This project benchmarks the weighted aggregation
+In the function `csr_spmm()` in `SpMM_GNN_Aggregation_Benchmark.cpp`. This project benchmarks the weighted aggregation
 
 $$
 \mathbf{Y} = \mathbf{A}\mathbf{X}, \qquad
