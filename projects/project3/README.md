@@ -1,4 +1,4 @@
-# Project 1: CSR SpMM: Profiling the Impact of Memory Access Locality
+# Project 3: CSR SpMM: Profiling the Impact of Memory Access Locality
 
 ## 1. Introduction
 
