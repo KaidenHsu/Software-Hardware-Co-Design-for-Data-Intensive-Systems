@@ -183,20 +183,18 @@ The benefit is not guaranteed. For example, if the feature table and the set of 
 
 ## 9. Propose a Falsifiable Reuse Hypothesis
 
-<p align="center"><img src="images/CSR.png" alt="csr" /></p>
-
-**hypothesis:** for the fixed baseline workload, the local layout will have lower kernel time and lower time per edge-feature than the permuted layout because nearby neighbor references reuse cache lines from nearby rows of $x$. the implementation, input, machine state, timed region, correctness checks, and statistical procedure must remain fixed; both layouts must perform identical work and pass the same oracle; and performance evidence must distinguish memory pressure from front-end or core-bound limitations.
-
-**Falsification experiment:** Compile once, then run `local` and `permuted` with identical dimensions, iteration counts, warm-up, timed kernel boundaries, and correctness checks. Repeat each run and compare `ms_per_iter` and `ns_per_edge_feature`. The hypothesis is falsified if repeated measurements show no consistent performance advantage for the local layout. PMU counters, if collected, provide supporting evidence rather than a direct DRAM-traffic measurement.
-
-With the reuse hypothesis and falsifiable experiment defined, we can proceed to optimize the workload while preserving the measurement boundary, functional equivalence, and correctness requirements.
-
 <p align="center">
     <img src="images/reuse-slide-02.png" alt="Slide 2: falsifiable measurement contract" width="49%" />
     <img src="images/reuse-slide-03.png" alt="Slide 3: measurement boundary and functional equivalence" width="49%" />
     <img src="images/reuse-slide-04.png" alt="Slide 4: pipeline-slot outcomes" width="49%" />
     <img src="images/reuse-slide-05.png" alt="Slide 5: core-bound versus memory-bound behavior" width="49%" />
 </p>
+
+**hypothesis:** for the fixed baseline workload, the local layout will have lower kernel time and lower time per edge-feature than the permuted layout because nearby neighbor references reuse cache lines from nearby rows of $x$. the implementation, input, machine state, timed region, correctness checks, and statistical procedure must remain fixed; both layouts must perform identical work and pass the same oracle; and performance evidence must distinguish memory pressure from front-end or core-bound limitations.
+
+**Falsification experiment:** Compile once, then run `local` and `permuted` with identical dimensions, iteration counts, warm-up, timed kernel boundaries, and correctness checks. Repeat each run and compare `ms_per_iter` and `ns_per_edge_feature`. The hypothesis is falsified if repeated measurements show no consistent performance advantage for the local layout. PMU counters, if collected, provide supporting evidence rather than a direct DRAM-traffic measurement.
+
+With the reuse hypothesis and falsifiable experiment defined, we can proceed to optimize the workload while preserving the measurement boundary, functional equivalence, and correctness requirements.
 
 ## 10. Conclusion
 
