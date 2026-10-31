@@ -15,7 +15,9 @@ LAYOUT_ORACLE=PASS checksum=386050.195312
 VALIDATION=PASS (PMU hardware availability must be checked on target CPU)
 ```
 
-## 3. Workload: Compressed Sparse Row Sparse-Dense Matrix Multiplication
+## 3. Workload
+
+The workload in this project is **Compressed Sparse Row (CSR) Sparse-Dense Matrix Multiplication (SpMM)**, where Compressed Sparse Row (CSR) format is a common format used to store sparse matrices in a memory-efficient manner in many libraries.
 
 In the function `csr_spmm()` in `SpMM_GNN_Aggregation_Benchmark.cpp`. This project benchmarks the weighted aggregation
 
@@ -43,8 +45,6 @@ The dense matrices $X$ and $Y$ use row-major storage. Each output feature vector
 | `values` | `double` nonzero weights with $NNZ$ entries |
 
 The benchmark implements this aggregation kernel only; it does not include graph normalization, learned feature transformations, activation functions, or training.
-
-Compressed Sparse Row (CSR) format is a common format used to store sparse matrices in a memory-efficient manner in many libraries.
 
 <p align="center"><img src="images/CSR.png" alt="CSR" /></p>
 
