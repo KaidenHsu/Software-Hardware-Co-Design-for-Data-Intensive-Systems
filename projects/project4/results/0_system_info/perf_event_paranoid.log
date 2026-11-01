@@ -1,0 +1,5 @@
+$ cat /proc/sys/kernel/perf_event_paranoid
+
+0
+
+[exit_code=0]

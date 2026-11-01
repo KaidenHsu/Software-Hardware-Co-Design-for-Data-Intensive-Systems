@@ -1,0 +1,36 @@
+$ perf list | grep -Ei 'L1-dcache|LLC-load|dTLB-load|l2_rqsts'
+
+  L1-dcache-loads OR cpu/L1-dcache-loads/
+  L1-dcache-load-misses OR cpu/L1-dcache-load-misses/
+  L1-dcache-stores OR cpu/L1-dcache-stores/
+  LLC-loads OR cpu/LLC-loads/
+  LLC-load-misses OR cpu/LLC-load-misses/
+  dTLB-loads OR cpu/dTLB-loads/
+  dTLB-load-misses OR cpu/dTLB-load-misses/
+       [All accesses to L2 cache [This event is alias to L2_RQSTS.REFERENCES].
+        L2_RQSTS.MISS]. Unit: cpu]
+  l2_rqsts.all_code_rd
+  l2_rqsts.all_demand_data_rd
+  l2_rqsts.all_demand_miss
+  l2_rqsts.all_demand_references
+  l2_rqsts.all_hwpf
+       [L2_RQSTS.ALL_HWPF. Unit: cpu]
+  l2_rqsts.all_rfo
+  l2_rqsts.code_rd_hit
+  l2_rqsts.code_rd_miss
+  l2_rqsts.demand_data_rd_hit
+  l2_rqsts.demand_data_rd_miss
+  l2_rqsts.hwpf_miss
+       [L2_RQSTS.HWPF_MISS. Unit: cpu]
+  l2_rqsts.miss
+  l2_rqsts.references
+  l2_rqsts.rfo_hit
+  l2_rqsts.rfo_miss
+  l2_rqsts.swpf_hit
+  l2_rqsts.swpf_miss
+
+[stderr]
+Error: failed to open tracing events directory
+/sys/kernel/tracing/events: Permission denied
+
+[exit_code=0]

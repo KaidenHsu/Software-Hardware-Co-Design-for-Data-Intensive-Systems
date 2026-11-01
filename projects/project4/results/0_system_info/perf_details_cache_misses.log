@@ -1,0 +1,11 @@
+$ perf list --details cache-misses
+
+  cache-misses                                       [Hardware event]
+  cache-misses OR cpu/cache-misses/                  [Kernel PMU event]
+        cpu/event=0x2e,umask=0x41/
+
+[stderr]
+Error: failed to open tracing events directory
+/sys/kernel/tracing/events: Permission denied
+
+[exit_code=0]

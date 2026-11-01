@@ -1,0 +1,2 @@
+system_info=/home/kaiden/HwSwCoDesign/SpMM_A2/results/0_system_info
+pattern=permuted rows=131072 nnz_per_row=8 features=32 iters=30

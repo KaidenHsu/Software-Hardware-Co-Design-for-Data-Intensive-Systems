@@ -1,0 +1,6 @@
+$ /home/kaiden/HwSwCoDesign/SpMM_A2/build/spmm_gnn --pmu-levels --pattern permuted --rows 262144 --nnz-per-row 8 --features 8 --iters 12
+
+CORRECT=PASS kernel=SpMM pattern=permuted rows=262144 ncols=1048576 nnz=2097152 features=8 iters=12 checksum=12353549.492188
+setup_s=0.084563 timed_kernel_s=0.386247 ms_per_iter=32.187226 ns_per_edge_feature=1.918508 feature_table_MiB=64.000000
+PMU_STATUS=OK PMU_MODE=levels PMU_SCOPE=timed_spmm_loop_user_only l1d_load_misses=30341448 l2_demand_rd_misses=22299535 llc_load_misses=29280707 dtlb_load_misses=436 running_fraction=1.000000
+PMU_NOTICE=L1_LLC_dTLB_are_CPU_dependent_load_miss_events;_L2_is_true_demand_data_read_misses_only;_no_event_equals_DRAM_bytes

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="590" viewBox="0 0 960 590">
+<rect width="960" height="590" fill="white"/>
+<text x="480" y="40" font-size="24" font-family="Arial" text-anchor="middle">SpMM: effect of feature width</text>
+<path d="M90,105V500H850" stroke="black" stroke-width="2" fill="none"/>
+<text x="480" y="550" text-anchor="middle" font-family="Arial" font-size="16">Features per vertex</text>
+<text x="24" y="300" transform="rotate(-90 24 300)" text-anchor="middle" font-family="Arial" font-size="16">Median ns/edge-feature</text>
+<line x1="90" y1="500.0" x2="850" y2="500.0" stroke="#ddd"/>
+<text x="78" y="505.0" text-anchor="end" font-family="Arial" font-size="12">0</text>
+<line x1="90" y1="401.25" x2="850" y2="401.25" stroke="#ddd"/>
+<text x="78" y="406.25" text-anchor="end" font-family="Arial" font-size="12">0.431</text>
+<line x1="90" y1="302.5" x2="850" y2="302.5" stroke="#ddd"/>
+<text x="78" y="307.5" text-anchor="end" font-family="Arial" font-size="12">0.862</text>
+<line x1="90" y1="203.75" x2="850" y2="203.75" stroke="#ddd"/>
+<text x="78" y="208.75" text-anchor="end" font-family="Arial" font-size="12">1.29</text>
+<line x1="90" y1="104.99999999999994" x2="850" y2="104.99999999999994" stroke="#ddd"/>
+<text x="78" y="109.99999999999994" text-anchor="end" font-family="Arial" font-size="12">1.72</text>
+<text x="90.0" y="520" text-anchor="middle" font-family="Arial" font-size="12">8</text>
+<text x="850.0" y="520" text-anchor="middle" font-family="Arial" font-size="12">32</text>
+<polyline fill="none" stroke="#167f81" stroke-width="3" points="90.00,366.91 850.00,353.28"/>
+<circle fill="#167f81" cx="90.0" cy="366.9112618575375" r="4"/>
+<circle fill="#167f81" cx="850.0" cy="353.2778562283165" r="4"/>
+<line x1="105" x2="130" y1="66" y2="66" stroke="#167f81" stroke-width="4"/>
+<text x="136" y="71" font-family="Arial" font-size="13">local</text>
+<polyline fill="none" stroke="#b65a32" stroke-width="3" points="90.00,156.52 850.00,162.23"/>
+<circle fill="#b65a32" cx="90.0" cy="156.52173913043475" r="4"/>
+<circle fill="#b65a32" cx="850.0" cy="162.23288519393327" r="4"/>
+<line x1="475" x2="500" y1="66" y2="66" stroke="#b65a32" stroke-width="4"/>
+<text x="506" y="71" font-family="Arial" font-size="13">permuted</text>
+</svg>

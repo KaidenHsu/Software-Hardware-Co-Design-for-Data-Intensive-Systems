@@ -1,0 +1,6 @@
+$ /home/kaiden/HwSwCoDesign/SpMM_A2/build/spmm_gnn --pmu --pattern permuted --rows 32768 --nnz-per-row 8 --features 8 --iters 60
+
+CORRECT=PASS kernel=SpMM pattern=permuted rows=32768 ncols=131072 nnz=262144 features=8 iters=60 checksum=1544193.335938
+setup_s=0.010272 timed_kernel_s=0.095857 ms_per_iter=1.597615 ns_per_edge_feature=0.761802 feature_table_MiB=8.000000
+PMU_STATUS=OK PMU_MODE=core PMU_SCOPE=timed_spmm_loop_user_only cycles=366547430 instructions=872943094 cache_misses=2742 ipc=2.381528 running_fraction=1.000000
+PMU_NOTICE=cache_misses_is_CPU_dependent_not_DRAM_bytes

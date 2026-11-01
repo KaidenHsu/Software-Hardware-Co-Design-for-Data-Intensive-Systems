@@ -1,0 +1,4 @@
+$ sha256sum src/*
+49247f1fc59fb1855f544259612c862d4acc24455404a56b22579333205c5544  src/di_common.hpp
+257a80f78a7e1668c67587481896271b277fca72bd6271320456a87d55cfa8a6  src/di_kernel_pmu.hpp
+686f33f48a8f3092495b469b9bd96c958b13bbff1bf0c464d0f3ba0ae67de9f2  src/SpMM_GNN_Aggregation_Benchmark.cpp

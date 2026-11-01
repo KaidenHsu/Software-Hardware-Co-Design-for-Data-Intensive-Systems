@@ -1,0 +1,5 @@
+$ ./build/spmm_gnn --selftest
+
+SELFTEST=PASS CSR_SPMM_ORACLE=PASS
+
+[exit_code=0]

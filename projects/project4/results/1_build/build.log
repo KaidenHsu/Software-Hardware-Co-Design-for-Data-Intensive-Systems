@@ -1,0 +1,47 @@
+$ g++ -O3 -g -fno-omit-frame-pointer -std=c++17 -Wall -Wextra -Wpedantic -Werror /home/kaiden/HwSwCoDesign/SpMM_A2/src/SpMM_GNN_Aggregation_Benchmark.cpp -o /home/kaiden/HwSwCoDesign/SpMM_A2/build/spmm_gnn
+
+
+[exit_code=0]
+
+$ /home/kaiden/HwSwCoDesign/SpMM_A2/build/spmm_gnn --selftest
+
+SELFTEST=PASS CSR_SPMM_ORACLE=PASS
+
+[exit_code=0]
+
+$ /home/kaiden/HwSwCoDesign/SpMM_A2/build/spmm_gnn --pattern local --rows 8192 --nnz-per-row 8 --features 8 --iters 3
+
+CORRECT=PASS kernel=SpMM pattern=local rows=8192 ncols=32768 nnz=65536 features=8 iters=3 checksum=386050.195312
+setup_s=0.002505 timed_kernel_s=0.000674 ms_per_iter=0.224638 ns_per_edge_feature=0.428464 feature_table_MiB=2.000000
+
+[exit_code=0]
+
+$ /home/kaiden/HwSwCoDesign/SpMM_A2/build/spmm_gnn --pattern permuted --rows 8192 --nnz-per-row 8 --features 8 --iters 3
+
+CORRECT=PASS kernel=SpMM pattern=permuted rows=8192 ncols=32768 nnz=65536 features=8 iters=3 checksum=386050.195312
+setup_s=0.004529 timed_kernel_s=0.001226 ms_per_iter=0.408816 ns_per_edge_feature=0.779754 feature_table_MiB=2.000000
+
+[exit_code=0]
+
+$ /home/kaiden/HwSwCoDesign/SpMM_A2/build/spmm_gnn --pmu --pattern local --rows 8192 --nnz-per-row 8 --features 8 --iters 3
+
+CORRECT=PASS kernel=SpMM pattern=local rows=8192 ncols=32768 nnz=65536 features=8 iters=3 checksum=386050.195312
+setup_s=0.001885 timed_kernel_s=0.001369 ms_per_iter=0.456495 ns_per_edge_feature=0.870695 feature_table_MiB=2.000000
+PMU_STATUS=OK PMU_MODE=core PMU_SCOPE=timed_spmm_loop_user_only cycles=2262137 instructions=10912145 cache_misses=98 ipc=4.823821 running_fraction=1.000000
+PMU_NOTICE=cache_misses_is_CPU_dependent_not_DRAM_bytes
+
+[exit_code=0]
+
+$ /home/kaiden/HwSwCoDesign/SpMM_A2/build/spmm_gnn --pmu-levels --pattern local --rows 8192 --nnz-per-row 8 --features 8 --iters 3
+
+CORRECT=PASS kernel=SpMM pattern=local rows=8192 ncols=32768 nnz=65536 features=8 iters=3 checksum=386050.195312
+setup_s=0.001926 timed_kernel_s=0.000663 ms_per_iter=0.221041 ns_per_edge_feature=0.421602 feature_table_MiB=2.000000
+PMU_STATUS=OK PMU_MODE=levels PMU_SCOPE=timed_spmm_loop_user_only l1d_load_misses=218558 l2_demand_rd_misses=6412 llc_load_misses=4 dtlb_load_misses=0 running_fraction=1.000000
+PMU_NOTICE=L1_LLC_dTLB_are_CPU_dependent_load_miss_events;_L2_is_true_demand_data_read_misses_only;_no_event_equals_DRAM_bytes
+
+[exit_code=0]
+
+PMU_MODES=PASS
+SELFTEST=PASS
+LAYOUT_ORACLE=PASS checksum=386050.195312
+VALIDATION=PASS (PMU hardware availability must be checked on target CPU)

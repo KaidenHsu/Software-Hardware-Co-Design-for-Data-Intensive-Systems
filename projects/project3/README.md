@@ -1,4 +1,4 @@
-# Project 3: CSR SpMM: Profiling the Impact of Memory Access Locality
+# Project 3: CSR SpMM: Profiling Access Locality Impact with Timing Markers
 
 ## 1. Introduction
 
@@ -190,7 +190,7 @@ The benefit is not guaranteed. For example, if the feature table and the set of 
     <img src="images/reuse-slide-05.png" alt="Slide 5: core-bound versus memory-bound behavior" width="49%" />
 </p>
 
-**hypothesis:** for the fixed baseline workload, the local layout will have lower kernel time and lower time per edge-feature than the permuted layout because nearby neighbor references reuse cache lines from nearby rows of $x$. the implementation, input, machine state, timed region, correctness checks, and statistical procedure must remain fixed; both layouts must perform identical work and pass the same oracle; and performance evidence must distinguish memory pressure from front-end or core-bound limitations.
+**Hypothesis:** for the fixed baseline workload, the local layout will have lower kernel time and lower time per edge-feature than the permuted layout because nearby neighbor references reuse cache lines from nearby rows of $x$. the implementation, input, machine state, timed region, correctness checks, and statistical procedure must remain fixed; both layouts must perform identical work and pass the same oracle; and performance evidence must distinguish memory pressure from front-end or core-bound limitations.
 
 **Falsification experiment:** Compile once, then run `local` and `permuted` with identical dimensions, iteration counts, warm-up, timed kernel boundaries, and correctness checks. Repeat each run and compare `ms_per_iter` and `ns_per_edge_feature`. The hypothesis is falsified if repeated measurements show no consistent performance advantage for the local layout. PMU counters, if collected, provide supporting evidence rather than a direct DRAM-traffic measurement.
 

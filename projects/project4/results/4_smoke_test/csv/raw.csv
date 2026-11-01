@@ -1,0 +1,3 @@
+rows,features,iters,pattern,rep,CORRECT,checksum,timed_kernel_s,ms_per_iter,ns_per_edge_feature,feature_table_MiB,PMU_STATUS,cycles,instructions,cache_misses,ipc,core_running_fraction,LEVEL_STATUS,l1d_load_misses,l2_demand_rd_misses,llc_load_misses,dtlb_load_misses,levels_running_fraction,levels_unavailable_events
+8192,8,2,permuted,1,PASS,386050.195312,0.001496,0.747783,1.426284,2.000000,OK,2663924,7274843,1355,2.730875,1.000000,OK,296699,137914,2,1,1.000000,
+8192,8,2,local,1,PASS,386050.195312,0.000567,0.283492,0.540717,2.000000,OK,2198474,7274843,1,3.309042,1.000000,OK,138118,4517,7,0,1.000000,

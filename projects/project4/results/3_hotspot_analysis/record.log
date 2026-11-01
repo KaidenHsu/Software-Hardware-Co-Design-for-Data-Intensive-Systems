@@ -1,0 +1,10 @@
+$ perf record -g -e cycles:u -o /home/kaiden/HwSwCoDesign/SpMM_A2/results/3_hotspot_analysis/profile.data -- /home/kaiden/HwSwCoDesign/SpMM_A2/build/spmm_gnn --pattern permuted --rows 131072 --nnz-per-row 8 --features 32 --iters 30
+
+CORRECT=PASS kernel=SpMM pattern=permuted rows=131072 ncols=524288 nnz=1048576 features=32 iters=30 checksum=24707064.992188
+setup_s=0.111858 timed_kernel_s=1.479976 ms_per_iter=49.332544 ns_per_edge_feature=1.470224 feature_table_MiB=128.000000
+
+[stderr]
+[ perf record: Woken up 3 times to write data ]
+[ perf record: Captured and wrote 0.508 MB /home/kaiden/HwSwCoDesign/SpMM_A2/results/3_hotspot_analysis/profile.data (6643 samples) ]
+
+[exit_code=0]

@@ -1,0 +1,8 @@
+$ ./build/spmm_gnn --pmu-levels --pattern local --rows 131072 --nnz-per-row 8 --features 32 --iters 30
+
+CORRECT=PASS kernel=SpMM pattern=local rows=131072 ncols=524288 nnz=1048576 features=32 iters=30 checksum=24707064.992188
+setup_s=0.096924 timed_kernel_s=0.694863 ms_per_iter=23.162102 ns_per_edge_feature=0.690284 feature_table_MiB=128.000000
+PMU_STATUS=OK PMU_MODE=levels PMU_SCOPE=timed_spmm_loop_user_only l1d_load_misses=62386595 l2_demand_rd_misses=3140717 llc_load_misses=67685089 dtlb_load_misses=17520 running_fraction=1.000000
+PMU_NOTICE=L1_LLC_dTLB_are_CPU_dependent_load_miss_events;_L2_is_true_demand_data_read_misses_only;_no_event_equals_DRAM_bytes
+
+[exit_code=0]

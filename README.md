@@ -14,8 +14,10 @@ Labs | Description
 
 Projects | Description
 --------|:--------
-[Project 3][2-3]| CSR SpMM: Profiling the Impact of Memory Access Locality
+[Project 3][2-3]| CSR SpMM: Profiling Access Locality Impact with Timing Markers
+[Project 4][2-4]| CSR SpMM: Profiling Access Locality Impact with Hotspot Analysis and Working Set Sweep
 
 [2-3]: projects/project3/
+[2-4]: projects/project4/
 
 <p align="center"><img src="images/banner.png" alt="banner" /></p>
