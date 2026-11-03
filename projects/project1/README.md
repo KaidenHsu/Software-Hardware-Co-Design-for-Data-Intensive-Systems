@@ -44,10 +44,10 @@ multiplication. In [SpMV_Guided_Benchmark.cpp](src/SpMV_Guided_Benchmark.cpp),
 
 $$
 \begin{aligned}
-\text{for } row &= 0,\ldots,\texttt{row\_ptr.size()}-2, \\
-\texttt{sum} &= \sum_{k=\texttt{row\_ptr}[row]}^{\texttt{row\_ptr}[row+1]-1}
-    \texttt{values}[k] \times \texttt{x}[\texttt{column\_index}[k]], \\
-\texttt{y}[row] &= \texttt{sum}.
+\text{for } row &= 0,\ldots,\mathrm{row\_ptr.size()}-2, \\
+\mathrm{sum} &= \sum_{k=\mathrm{row\_ptr}[row]}^{\mathrm{row\_ptr}[row+1]-1}
+    \mathrm{values}[k] \times \mathrm{x}[\mathrm{column\_index}[k]], \\
+\mathrm{y}[row] &= \mathrm{sum}.
 \end{aligned}
 $$
 
@@ -57,9 +57,9 @@ illustrated row 3 example, the nonzeros are `6` and `7` in columns `2` and
 `4`, so the computation is
 
 $$
-\texttt{y[3]} = 6 \times \texttt{x[2]} + 7 \times \texttt{x[4]}
+\mathrm{y}[3] = 6 \times \mathrm{x}[2] + 7 \times \mathrm{x}[4]
               = 6 \times 3 + 7 \times 5 = 53,
-\qquad \texttt{x} = [1,2,3,4,5].
+\qquad \mathrm{x} = [1,2,3,4,5].
 $$
 
 During setup, `rows` determines the number of outputs in `y`, `column_count`
@@ -114,9 +114,9 @@ direct-mapped cache slot to which the block is assigned:
 $$
 \begin{aligned}
 \text{address} &= 0x1000 + 4i, \\
-\text{block\_id} &= \left\lfloor\frac{\text{address} - 0x1000}{16}\right\rfloor, \\
-\text{offset} &= (\text{address} - 0x1000) \bmod 16, \\
-\text{set} &= \text{block\_id} \bmod 2.
+\mathrm{block\_id} &= \left\lfloor\frac{\mathrm{address} - 0x1000}{16}\right\rfloor, \\
+\mathrm{offset} &= (\mathrm{address} - 0x1000) \bmod 16, \\
+\mathrm{set} &= \mathrm{block\_id} \bmod 2.
 \end{aligned}
 $$
 
