@@ -14,9 +14,11 @@ Labs | Description
 
 Projects | Description
 --------|:--------
+[Project 1][2-1]| CSR SpMV: Memory Footprint and Cache Mapping Analysis
 [Project 3][2-3]| CSR SpMM: Profiling Access Locality Impact with Timing Markers
 [Project 4][2-4]| CSR SpMM: Profiling Access Locality Impact with Hotspot Analysis and Working Set Sweep
 
+[2-1]: projects/project1/
 [2-3]: projects/project3/
 [2-4]: projects/project4/
 

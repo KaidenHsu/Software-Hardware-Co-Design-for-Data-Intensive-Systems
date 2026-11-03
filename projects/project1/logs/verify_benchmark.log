@@ -1,0 +1,4 @@
+$ python3 scripts/verify_benchmark.py
+SELFTEST=PASS
+LAYOUT_ORACLE=PASS checksum=90905.765625
+VALIDATION=PASS (PMU hardware availability must be checked on target CPU)

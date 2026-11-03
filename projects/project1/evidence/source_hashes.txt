@@ -1,0 +1,4 @@
+$ sha256sum src/SpMV_Guided_Benchmark.cpp src/di_common.hpp src/di_kernel_pmu.hpp
+6a84016b3ecc3a2049347ef6450e7ae2bcc5afb760596ada012ee8cbe79cfdfb  src/SpMV_Guided_Benchmark.cpp
+c67703e0ca4aa55be13c620838377b3a91c6303d3a410fb41b3e1bfeb66c59fb  src/di_common.hpp
+871ae1c8404ca1dcafa73b41a31ad8f63059b14532548bacae65249329f9b36a  src/di_kernel_pmu.hpp

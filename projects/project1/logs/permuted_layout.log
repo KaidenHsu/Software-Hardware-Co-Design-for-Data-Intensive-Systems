@@ -1,0 +1,3 @@
+$ ./build/spmv_bench --pattern permuted --rows 65536 --nnz-per-row 8 --iters 500
+CORRECT=PASS kernel=SpMV pattern=permuted rows=65536 ncols=262144 nnz=524288 iters=500 checksum=727476.546875
+setup_s=0.014900 timed_kernel_s=0.336700 ms_per_iter=0.673401 ns_per_nnz=1.284410 x_MiB=2.000000

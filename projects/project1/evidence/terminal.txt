@@ -1,0 +1,12 @@
+$ python3 scripts/verify_benchmark.py
+SELFTEST=PASS
+LAYOUT_ORACLE=PASS checksum=90905.765625
+VALIDATION=PASS (PMU hardware availability must be checked on target CPU)
+
+$ ./build/spmv_bench --pattern local --rows 65536 --nnz-per-row 8 --iters 500
+CORRECT=PASS kernel=SpMV pattern=local rows=65536 ncols=262144 nnz=524288 iters=500 checksum=727476.546875
+setup_s=0.007035 timed_kernel_s=0.218793 ms_per_iter=0.437585 ns_per_nnz=0.834628 x_MiB=2.000000
+
+$ ./build/spmv_bench --pattern permuted --rows 65536 --nnz-per-row 8 --iters 500
+CORRECT=PASS kernel=SpMV pattern=permuted rows=65536 ncols=262144 nnz=524288 iters=500 checksum=727476.546875
+setup_s=0.013411 timed_kernel_s=0.342264 ms_per_iter=0.684527 ns_per_nnz=1.305632 x_MiB=2.000000
