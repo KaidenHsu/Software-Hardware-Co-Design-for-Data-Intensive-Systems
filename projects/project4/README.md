@@ -118,8 +118,8 @@ profile the benchmark and writes the record, report, annotation, and
 provenance logs to `results/3_hotspot_analysis/`.
 
 <p align="center">
-    <img src="images/linux_perf_events.png" alt="Linux perf event sources, including hardware PMU counters" height="400" />
-    <img src="images/perf_workflow.png" alt="Linux perf workflow from event listing and counting to profiling output" height="400" />
+    <img src="images/linux_perf_events.png" alt="Linux perf event sources, including hardware PMU counters" height="360" />
+    <img src="images/perf_workflow.png" alt="Linux perf workflow from event listing and counting to profiling output" height="360" />
 </p>
 
 The first figure shows the kinds of event sources that Linux `perf` can access,
