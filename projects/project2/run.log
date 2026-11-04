@@ -1,0 +1,15 @@
+$ ./run.sh
+$ lscpu | grep -E 'Model name|NUMA|L1d|L2|L3'
+$ cat /proc/sys/kernel/perf_event_paranoid
+$ perf list | grep -Ei 'L1-dcache|LLC-load|dTLB-load|l2_rqsts'
+$ perf list --details cache-misses
+$ g++ -O3 -g -fno-omit-frame-pointer -std=c++17 -Wall -Wextra -Wpedantic src/SpMV_Guided_Benchmark.cpp -o build/spmv_bench
+$ build/spmv_bench --selftest
+$ perf record -g -e cycles:u -o results/3_hotspot_analysis/profile.data -- build/spmv_bench --pattern permuted --rows 1048576 --nnz-per-row 8 --iters 60
+$ perf report -i 'results/3_hotspot_analysis/profile.data' --stdio
+$ perf annotate -i 'results/3_hotspot_analysis/profile.data' --stdio
+$ python3 scripts/run_SpMV_experiments.py --smoke --reps 1 --out results/4_smoke_test
+$ python3 scripts/plot_SpMV_results.py results/4_smoke_test/summary.csv
+$ python3 scripts/run_SpMV_experiments.py --reps 5 --out results/5_full_sweep
+$ python3 scripts/plot_SpMV_results.py results/5_full_sweep/summary.csv
+$ sha256sum src/* > SHA256SUMS.txt

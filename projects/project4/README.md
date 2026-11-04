@@ -1,4 +1,4 @@
-# Project 4. CSR SpMM: Profiling Access Locality Impact with Hotspot Analysis and Working Set Sweep
+# Project 4. CSR SpMM: Profiling Access-Locality Impact with Hotspot Analysis and Working-Set Analysis
 
 ## 1. Introduction
 
@@ -29,22 +29,21 @@ $ bash run.sh
 
 ## 3. System Information
 
-``` bash
-$ sudo python3 scripts/system_info.py
-SYSTEM_INFO_LOGS=/home/kaiden/HwSwCoDesign/SpMM_A2/results/0_system_info
-```
-
 The script inspects `lscpu`, `/proc/sys/kernel/perf_event_paranoid`, relevant
 `perf list` cache and TLB events, and the detailed
 `perf list --details cache-misses` output. Each command is written to a
-separate log under `results/0_system_info/`.
+separate log under [`results/0_system_info/`](./results/0_system_info/).
 
-| Command | Purpose |
+| Field | Value |
 | --- | --- |
-| `lscpu` | Selects the processor model, cache sizes, and NUMA topology fields used to characterize the host. |
-| `cat /proc/sys/kernel/perf_event_paranoid` | Reports the operating-system policy governing access to performance counters. |
-| `perf list` | Lists the cache and TLB events recognized by `perf` on the host. |
-| `perf list --details cache-misses` | Shows how the named cache-miss event is resolved by `perf`. |
+| Model name | Intel Xeon Gold 6526Y |
+| BIOS model name | Intel Xeon Gold 6526Y |
+| L1d cache | 1.5 MiB total (48 KiB per core, 32 instances) |
+| L2 cache | 64 MiB total (2 MiB per core, 32 instances) |
+| L3 cache | 75 MiB (2 instances) |
+| NUMA nodes | 2 |
+| NUMA node 0 CPUs | 0–15, 32–47 |
+| NUMA node 1 CPUs | 16–31, 48–63 |
 
 On Intel Emerald Rapids (Intel's 5th-generation Xeon Scalable server-processor
 architecture), the benchmark uses the L2 event
@@ -52,25 +51,9 @@ architecture), the benchmark uses the L2 event
 true demand data-read misses in the L2 cache and does not count misses that
 were merged with other requests.
 
-These counters describe different types of activity, and their coverage can
-overlap or omit some misses. Do not add their values together as one total;
-compare each counter separately. No single counter proves how much data reached
-the memory controller or that the program is limited by DRAM bandwidth. Some
-generic events may also be unavailable, depending on the Linux kernel and the
-host system.
-
-| Field | Value |
-| --- | --- |
-| Model name | Intel Xeon Gold 6526Y |
-| BIOS model name | Intel Xeon Gold 6526Y |
-| L1d cache | 1.5 MiB (32 instances) |
-| L2 cache | 64 MiB (32 instances) |
-| L3 cache | 75 MiB (2 instances) |
-| NUMA nodes | 2 |
-| NUMA node 0 CPUs | 0–15, 32–47 |
-| NUMA node 1 CPUs | 16–31, 48–63 |
-
 ## 4. Workload
+
+<p align="center"><img src="images/CSR.png" alt="CSR" /></p>
 
 The workload in this project is **Compressed Sparse Row (CSR) Sparse-Dense Matrix Multiplication (SpMM)**, where Compressed Sparse Row (CSR) format is a common format used to store sparse matrices in a memory-efficient manner in many libraries.
 
@@ -99,8 +82,6 @@ The dense matrices $X$ and $Y$ use row-major storage. Each output feature vector
 | `col_idx` | `std::uint32_t` column indices with $NNZ$ entries |
 | `values` | `double` nonzero weights with $NNZ$ entries |
 
-<p align="center"><img src="images/CSR.png" alt="CSR" /></p>
-
 The benchmark implements this aggregation kernel only; it does not include graph normalization, learned feature transformations, activation functions, or training.  Although the benchmark is only the aggregation kernel
 rather than a complete GNN, it uses the usual graph terminology for this operation:
 
@@ -124,10 +105,6 @@ benchmark reports time per edge-feature operation.
 
 ``` bash
 $ python3 scripts/verify_benchmark.py
-PMU_MODES=PASS
-SELFTEST=PASS
-LAYOUT_ORACLE=PASS checksum=386050.195312
-VALIDATION=PASS (PMU hardware availability must be checked on target CPU)
 ```
 
 The build script compiles `src/SpMM_GNN_Aggregation_Benchmark.cpp` to produce
@@ -140,12 +117,9 @@ and reports where execution time is spent. The hotspot-analysis script uses it t
 profile the benchmark and writes the record, report, annotation, and
 provenance logs to `results/3_hotspot_analysis/`.
 
-The profile covers the whole process, not solely the kernel. Report the sampled
-event and scope. If profiling fails, preserve the error in the relevant log.
-
 <p align="center">
-    <img src="images/linux_perf_events.png" alt="Linux perf event sources, including hardware PMU counters" height="350" />
-    <img src="images/perf_workflow.png" alt="Linux perf workflow from event listing and counting to profiling output" height="350" />
+    <img src="images/linux_perf_events.png" alt="Linux perf event sources, including hardware PMU counters" height="400" />
+    <img src="images/perf_workflow.png" alt="Linux perf workflow from event listing and counting to profiling output" height="400" />
 </p>
 
 The first figure shows the kinds of event sources that Linux `perf` can access,
@@ -155,7 +129,6 @@ the resulting profile.
 
 ``` bash
 $ python3 scripts/hotspot_analysis.py
-HOTSPOT_ANALYSIS_LOGS=/home/kaiden/HwSwCoDesign/SpMM_A2/results/3_hotspot_analysis
 ```
 
 | Command | Purpose |
@@ -164,10 +137,14 @@ HOTSPOT_ANALYSIS_LOGS=/home/kaiden/HwSwCoDesign/SpMM_A2/results/3_hotspot_analys
 | `perf report` | Summarizes the collected profile to show where execution time was spent. |
 | `perf annotate` | Associates sampled execution data with source or assembly lines to identify hotspots in detail. |
 
-In the generated profile, `main` accounts for 5.46% of self time, while its
-child time is dominated by the SpMM kernel. The `csr_spmm` function accounts
-for 93.56% of self time and 93.59% of child time, making it the primary
-hotspot.
+In the generated profile of the entire process, `main` accounts for 5.46% of self time,
+while its child time is dominated by the SpMM kernel. The `csr_spmm` function accounts
+for 93.56% of self time and 93.59% of child time, making it the primary hotspot.
+
+The hotspot profile confirms that the benchmark spends nearly all of its
+sampled execution time in the intended kernel.The profile lost no samples,
+so the result provides a clear indication that `csr_spmm` is the dominant
+hotspot rather than initialization or library overhead.
 
 ## 7. Timed Kernel and PMU
 
@@ -232,8 +209,6 @@ correctness check and writes its output to the
 
 ``` bash
 $ python3 scripts/self_test.py 
-SELFTEST=PASS CSR_SPMM_ORACLE=PASS
-SELF_TEST_LOG=/home/kaiden/HwSwCoDesign/SpMM_A2/results/2_self_test/Self_Test.log
 ```
 
 The self test computes the following small matrix product:
@@ -292,15 +267,8 @@ The smoke test validates the automated experiment pipeline. It uses a tiny
 workload to check execution, correctness, both PMU modes, logging, CSV
 generation, and result aggregation before the working-set sweep.
 
-The [run_SpMM_results.py](./scripts/run_SpMM_results.py) script writes the
-smoke-test output to the [smoke-test result folder](./results/4_smoke_test/)
-and its logs to the [smoke-test log folder](./results/4_smoke_test/logs/).
-
 ``` bash
 $ python3 scripts/run_SpMM_results.py --smoke --reps 1
-R=8192 F=8 permuted rep=1 core=OK levels=OK
-R=8192 F=8 local rep=1 core=OK levels=OK
-RUN_COMPLETE=PASS folder=/home/kaiden/HwSwCoDesign/SpMM_A2/results/4_smoke_test
 ```
 
 ### 8.3 Working-Set Sweep
@@ -377,30 +345,9 @@ initialization, correctness warm-up, and final verification are excluded.
 TWO separate invocations avoid exceeding the core's programmable counters.
 Do not combine their cycle and miss counts as if simultaneous.
 
-### 8.5 Detached Long-Running Sweep (Optional)
+## 9. Experiment Result
 
-Use `nohup` for long-running sweep. This is not implemented in this project's framework.
-The [run_SpMM_results.py](./scripts/run_SpMM_results.py) script writes the
-detached sweep logs to the [full-sweep log folder](./results/5_full_sweep/logs/).
-
-``` bash
-$ nohup python3 scripts/run_SpMM_results.py --reps 5 --out results/5_full_sweep > sweep.log 2>&1 < /dev/null & echo $! > sweep.pid
-$ tail -f sweep.log
-$ ps -p "$(cat sweep.pid)" -o pid,stat,etime,cmd
-```
-
-## 9. Result
-
-### 9.1 Hotspot Analysis
-
-The hotspot profile confirms that the benchmark spends nearly all of its
-sampled execution time in the intended kernel. `csr_spmm` accounts for 93.59%
-of child time and 93.56% of self time, while `main` contributes 5.46% of self
-time. The profile lost no samples, so the result provides a clear indication
-that `csr_spmm` is the dominant hotspot rather than initialization or library
-overhead.
-
-### 9.2 Working-Set Results
+### 9.1 Working-Set Results
 
 <p align="center">
     <img src="images/SpMM_time_vs_X_MiB.svg" alt="SpMM normalized time versus feature-table footprint" width="49%" />
@@ -424,7 +371,7 @@ also fell from 1.73 to 0.84, while both layouts produced the same checksum and
 reported `PMU_STATUS=OK`. These counters are evidence of different cache
 behavior, not a direct measurement of DRAM bandwidth.
 
-### 9.3 Targeted PMU Test
+### 9.2 Targeted PMU Test
 
 The targeted test uses `R=131072`, `F=32`, eight nonzeros per row, and 30
 iterations. Each PMU mode runs in a separate process, so the core-mode and

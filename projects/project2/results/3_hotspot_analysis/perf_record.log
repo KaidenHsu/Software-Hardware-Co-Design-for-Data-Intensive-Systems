@@ -1,0 +1,5 @@
+$ perf record -g -e cycles:u -o results/3_hotspot_analysis/profile.data -- build/spmv_bench --pattern permuted --rows 1048576 --nnz-per-row 8 --iters 60
+CORRECT=PASS kernel=SpMV pattern=permuted rows=1048576 ncols=4194304 nnz=8388608 iters=60 checksum=11640783.203125
+setup_s=0.203466 timed_kernel_s=2.030997 ms_per_iter=33.849954 ns_per_nnz=4.035229 x_MiB=32.000000
+[ perf record: Woken up 3 times to write data ]
+[ perf record: Captured and wrote 0.692 MB results/3_hotspot_analysis/profile.data (9115 samples) ]

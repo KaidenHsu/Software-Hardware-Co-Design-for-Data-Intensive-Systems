@@ -1,0 +1,2 @@
+$ build/spmv_bench --selftest
+SELFTEST=PASS CSR_ORACLE=PASS SCRAMBLE_BIJECTION=PASS

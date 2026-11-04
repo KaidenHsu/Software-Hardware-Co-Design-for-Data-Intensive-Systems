@@ -1,0 +1,1 @@
+$ g++ -O3 -g -fno-omit-frame-pointer -std=c++17 -Wall -Wextra -Wpedantic src/SpMV_Guided_Benchmark.cpp -o build/spmv_bench

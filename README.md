@@ -2,24 +2,18 @@
 
 * homework and labs for " Software-Hardware Co-Design for Data-Intensive Systems (2026 Fall)" in NSYSU, Taiwan
 
-## Labs
-
-Labs | Description
---------|:--------
-[W6 Lab][1-1]| CSR SpMV: Profiling the Impact of Memory Access Locality
-
-[1-1]: labs/w6/
-
 ## Projects
 
 Projects | Description
 --------|:--------
-[Project 1][2-1]| CSR SpMV: Memory Footprint and Cache Mapping Analysis
-[Project 3][2-3]| CSR SpMM: Profiling Access Locality Impact with Timing Markers
-[Project 4][2-4]| CSR SpMM: Profiling Access Locality Impact with Hotspot Analysis and Working Set Sweep
+[Project 1][1]| CSR SpMV: Memory Footprint and Cache Mapping Analysis
+[Project 2][2]| CSR SpMV: Profiling Access Locality Impact with Hotspot Analysis and Working Set Sweep
+[Project 3][3]| CSR SpMM: Profiling Access Locality Impact with Timing Markers
+[Project 4][4]| CSR SpMM: Profiling Access Locality Impact with Hotspot Analysis and Working Set Sweep
 
-[2-1]: projects/project1/
-[2-3]: projects/project3/
-[2-4]: projects/project4/
+[1]: projects/project1/
+[2]: projects/project2/
+[3]: projects/project3/
+[4]: projects/project4/
 
 <p align="center"><img src="images/banner.png" alt="banner" /></p>

@@ -1,0 +1,6 @@
+/home/kaiden/HwSwCoDesign/SpMV_G2/build/spmv_bench --pmu-levels --pattern permuted --rows 1048576 --nnz-per-row 8 --iters 40
+CORRECT=PASS kernel=SpMV pattern=permuted rows=1048576 ncols=4194304 nnz=8388608 iters=40 checksum=11640783.203125
+setup_s=0.193139 timed_kernel_s=1.239080 ms_per_iter=30.977005 ns_per_nnz=3.692747 x_MiB=32.000000
+PMU_STATUS=OK PMU_MODE=levels PMU_SCOPE=timed_spmv_loop_user_only l1d_load_misses=243261385 l2_demand_rd_misses=144786872 llc_load_misses=52711661 dtlb_load_misses=1235 running_fraction=1.000000
+PMU_NOTICE=L1_LLC_dTLB_are_CPU_dependent_load_miss_events;_L2_is_true_demand_data_read_misses_only;_no_event_equals_DRAM_bytes
+

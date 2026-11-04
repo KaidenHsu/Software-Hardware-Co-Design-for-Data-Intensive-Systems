@@ -1,0 +1,2 @@
+$ python3 scripts/plot_SpMV_results.py results/4_smoke_test/summary.csv
+PLOT_CREATED=results/4_smoke_test/SpMV_time_vs_x_MiB.svg

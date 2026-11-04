@@ -1,0 +1,6 @@
+/home/kaiden/HwSwCoDesign/SpMV_G2/build/spmv_bench --pmu-levels --pattern local --rows 65536 --nnz-per-row 8 --iters 300
+CORRECT=PASS kernel=SpMV pattern=local rows=65536 ncols=262144 nnz=524288 iters=300 checksum=727476.546875
+setup_s=0.006586 timed_kernel_s=0.129044 ms_per_iter=0.430147 ns_per_nnz=0.820440 x_MiB=2.000000
+PMU_STATUS=OK PMU_MODE=levels PMU_SCOPE=timed_spmv_loop_user_only l1d_load_misses=47014402 l2_demand_rd_misses=1364228 llc_load_misses=28 dtlb_load_misses=1590 running_fraction=1.000000
+PMU_NOTICE=L1_LLC_dTLB_are_CPU_dependent_load_miss_events;_L2_is_true_demand_data_read_misses_only;_no_event_equals_DRAM_bytes
+

@@ -1,0 +1,2 @@
+$ python3 scripts/plot_SpMV_results.py results/5_full_sweep/summary.csv
+PLOT_CREATED=results/5_full_sweep/SpMV_time_vs_x_MiB.svg

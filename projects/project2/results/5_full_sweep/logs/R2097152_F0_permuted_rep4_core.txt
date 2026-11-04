@@ -1,0 +1,6 @@
+/home/kaiden/HwSwCoDesign/SpMV_G2/build/spmv_bench --pmu --pattern permuted --rows 2097152 --nnz-per-row 8 --iters 20
+CORRECT=PASS kernel=SpMV pattern=permuted rows=2097152 ncols=8388608 nnz=16777216 iters=20 checksum=23281599.031250
+setup_s=0.403302 timed_kernel_s=1.593539 ms_per_iter=79.676963 ns_per_nnz=4.749117 x_MiB=64.000000
+PMU_STATUS=OK PMU_MODE=core PMU_SCOPE=timed_spmv_loop_user_only cycles=6189531072 instructions=2894072372 cache_misses=257231254 ipc=0.467575 running_fraction=1.000000
+PMU_NOTICE=cache_misses_is_CPU_dependent_not_DRAM_bytes
+
