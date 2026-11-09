@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "payload_equivalent_per_original_packet_bytes": 64,
+  "results": {
+    "scattered": {
+      "source_directory": "/home/kaiden_di/Hw_Sw_CoDesign/w8/results/scattered/trace",
+      "source_trace_sha256": "31c31a5c58aedf558e7c839069edb7c288e6e3f6767fde9ed353c475696509fa",
+      "gem5_roi_ticks": 47385717000,
+      "size_histogram": {
+        "64": 483018
+      },
+      "ddr4": {
+        "requests": 483018,
+        "read": 480956,
+        "write": 2062,
+        "callbacks_completed": 483018,
+        "outstanding": 0,
+        "drain_ticks": 351,
+        "controller_cycles": 2507545,
+        "assumed_preset_tCK_ps": 833,
+        "modeled_controller_time_ms": 2.088784985,
+        "avg_read_latency_cycles": 199.562,
+        "row_hits": 122488,
+        "row_misses": 7457,
+        "row_conflicts": 353073,
+        "reported_throughput_MBps": 14799.6
+      },
+      "hbm2": {
+        "requests": 966036,
+        "read": 961912,
+        "write": 4124,
+        "callbacks_completed": 966036,
+        "outstanding": 0,
+        "drain_ticks": 228,
+        "controller_cycles": 1691297,
+        "assumed_preset_tCK_ps": 1000,
+        "modeled_controller_time_ms": 1.691297,
+        "avg_read_latency_cycles": 78.9326,
+        "row_hits": 534403,
+        "row_misses": 17128,
+        "row_conflicts": 414505,
+        "reported_throughput_MBps": 18277.8
+      },
+      "replay_time_ratio_ddr4_to_hbm2": 1.235019623992711
+    },
+    "clustered": {
+      "source_directory": "/home/kaiden_di/Hw_Sw_CoDesign/w8/results/clustered/trace",
+      "source_trace_sha256": "fac59bde22249a50d93ef51a9ee418ac44c3fd52ab53fa72bb7623209854207f",
+      "gem5_roi_ticks": 13706270500,
+      "size_histogram": {
+        "64": 71730
+      },
+      "ddr4": {
+        "requests": 71730,
+        "read": 69776,
+        "write": 1954,
+        "callbacks_completed": 71730,
+        "outstanding": 0,
+        "drain_ticks": 323,
+        "controller_cycles": 382715,
+        "assumed_preset_tCK_ps": 833,
+        "modeled_controller_time_ms": 0.318801595,
+        "avg_read_latency_cycles": 195.931,
+        "row_hits": 69415,
+        "row_misses": 577,
+        "row_conflicts": 1738,
+        "reported_throughput_MBps": 14399.9
+      },
+      "hbm2": {
+        "requests": 143460,
+        "read": 139552,
+        "write": 3908,
+        "callbacks_completed": 143460,
+        "outstanding": 0,
+        "drain_ticks": 110,
+        "controller_cycles": 234582,
+        "assumed_preset_tCK_ps": 1000,
+        "modeled_controller_time_ms": 0.234582,
+        "avg_read_latency_cycles": 70.1788,
+        "row_hits": 137477,
+        "row_misses": 2067,
+        "row_conflicts": 3916,
+        "reported_throughput_MBps": 19569.8
+      },
+      "replay_time_ratio_ddr4_to_hbm2": 1.359019852333086
+    }
+  },
+  "limitations": [
+    "HBM2 64B gem5 requests represented as 2x32B transactions; DDR4 retains 1x64B",
+    "gem5 time and request sizes are not replayed; frontend issues requests at normalized 1-per-cycle",
+    "single Ramulator modeled channel; not full DDR4 subsystem or complete HBM stack",
+    "two different backends have different channel structures and address mapping",
+    "gem5 ROI timestamp-filtered post-L2 stream includes possible non-data or outstanding traffic",
+    "no gem5 closed-loop coupling; no physical FPGA or CPU memory speedup claimed"
+  ]
+}

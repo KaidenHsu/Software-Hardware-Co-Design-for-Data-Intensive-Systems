@@ -1,0 +1,2 @@
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w8/scripts/run_experiments.py --results-dir /home/kaiden_di/Hw_Sw_CoDesign/w8/results --stage trace --gem5-root /home/asinha/gem5 --ramulator-root /home/asinha/tools/week8/ramulator2
+

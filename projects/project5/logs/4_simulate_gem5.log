@@ -1,0 +1,63 @@
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w8/scripts/run_experiments.py --results-dir /home/kaiden_di/Hw_Sw_CoDesign/w8/results --stage gem5 --gem5-root /home/asinha/gem5 --ramulator-root /home/asinha/tools/week8/ramulator2
+
+
+
+$ /home/asinha/gem5/build/X86/gem5.opt -d /home/kaiden_di/Hw_Sw_CoDesign/w8/results/scattered/gem5 /home/kaiden_di/Hw_Sw_CoDesign/w8/results/generated/gem5_kernel_roi.py /home/kaiden_di/Hw_Sw_CoDesign/w8/build/spmv_large_gem5 --rows 32768 --nnz-per-row 16 --cols 262144 --pattern scattered
+
+Global frequency set at 1000000000000 ticks per second
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (16384 Mbytes) does not match the address range assigned (512 Mbytes)
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+system.remote_gdb: Listening for connections on port 7000
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Nov  5 2026 18:13:10
+gem5 started Nov  9 2026 20:47:42
+gem5 executing on server1.local, pid 449567
+command line: /home/asinha/gem5/build/X86/gem5.opt -d /home/kaiden_di/Hw_Sw_CoDesign/w8/results/scattered/gem5 /home/kaiden_di/Hw_Sw_CoDesign/w8/results/generated/gem5_kernel_roi.py /home/kaiden_di/Hw_Sw_CoDesign/w8/build/spmv_large_gem5 --rows 32768 --nnz-per-row 16 --cols 262144 --pattern scattered
+
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/kaiden_di/Hw_Sw_CoDesign/w8/build/spmv_large_gem5'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+W8_LARGE_INPUT rows=32768 nnz=524288 cols=262144 pattern=scattered array_bytes=5505028
+W8_START_EVENT: workbegin
+W8_ROI_START_TICK: 268004158000
+W8_END_EVENT: workend
+W8_ROI_END_TICK: 315389875000
+W8_LARGE_CSR_ORACLE=PASS rows=32768 nnz=524288 checksum=1810 y0=18 y_last=32
+W8_FINAL_EXIT: exiting with last active thread context
+
+
+
+$ /home/asinha/gem5/build/X86/gem5.opt -d /home/kaiden_di/Hw_Sw_CoDesign/w8/results/clustered/gem5 /home/kaiden_di/Hw_Sw_CoDesign/w8/results/generated/gem5_kernel_roi.py /home/kaiden_di/Hw_Sw_CoDesign/w8/build/spmv_large_gem5 --rows 32768 --nnz-per-row 16 --cols 262144 --pattern clustered
+
+Global frequency set at 1000000000000 ticks per second
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (16384 Mbytes) does not match the address range assigned (512 Mbytes)
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+system.remote_gdb: Listening for connections on port 7000
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Nov  5 2026 18:13:10
+gem5 started Nov  9 2026 20:51:39
+gem5 executing on server1.local, pid 449640
+command line: /home/asinha/gem5/build/X86/gem5.opt -d /home/kaiden_di/Hw_Sw_CoDesign/w8/results/clustered/gem5 /home/kaiden_di/Hw_Sw_CoDesign/w8/results/generated/gem5_kernel_roi.py /home/kaiden_di/Hw_Sw_CoDesign/w8/build/spmv_large_gem5 --rows 32768 --nnz-per-row 16 --cols 262144 --pattern clustered
+
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/kaiden_di/Hw_Sw_CoDesign/w8/build/spmv_large_gem5'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+W8_LARGE_INPUT rows=32768 nnz=524288 cols=262144 pattern=clustered array_bytes=5505028
+W8_START_EVENT: workbegin
+W8_ROI_START_TICK: 270996470500
+W8_END_EVENT: workend
+W8_ROI_END_TICK: 284702741000
+W8_LARGE_CSR_ORACLE=PASS rows=32768 nnz=524288 checksum=-11627 y0=-2 y_last=19
+W8_FINAL_EXIT: exiting with last active thread context

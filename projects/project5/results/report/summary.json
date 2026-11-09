@@ -1,0 +1,84 @@
+{
+  "status": "COMPLETE",
+  "evidence": {
+    "check": true,
+    "baseline": true,
+    "replay": true
+  },
+  "gem5": [
+    {
+      "pattern": "scattered",
+      "gem5_roi_ms": 47.385717,
+      "post_l2_requests": 483018,
+      "logical_bytes": 30913152
+    },
+    {
+      "pattern": "clustered",
+      "gem5_roi_ms": 13.706270499999999,
+      "post_l2_requests": 71730,
+      "logical_bytes": 4590720
+    }
+  ],
+  "payload_equivalent_replay": [
+    {
+      "pattern": "scattered",
+      "technology": "ddr4",
+      "logical_bytes": 30913152,
+      "requests": 483018,
+      "controller_cycles": 2507545,
+      "tCK_ps": 833,
+      "modeled_time_ms": 2.088784985,
+      "row_hit_pct": 25.35888931675424,
+      "outstanding": 0
+    },
+    {
+      "pattern": "scattered",
+      "technology": "hbm2",
+      "logical_bytes": 30913152,
+      "requests": 966036,
+      "controller_cycles": 1691297,
+      "tCK_ps": 1000,
+      "modeled_time_ms": 1.691297,
+      "row_hit_pct": 55.31915994849053,
+      "outstanding": 0
+    },
+    {
+      "pattern": "clustered",
+      "technology": "ddr4",
+      "logical_bytes": 4590720,
+      "requests": 71730,
+      "controller_cycles": 382715,
+      "tCK_ps": 833,
+      "modeled_time_ms": 0.318801595,
+      "row_hit_pct": 96.77261954551791,
+      "outstanding": 0
+    },
+    {
+      "pattern": "clustered",
+      "technology": "hbm2",
+      "logical_bytes": 4590720,
+      "requests": 143460,
+      "controller_cycles": 234582,
+      "tCK_ps": 1000,
+      "modeled_time_ms": 0.234582,
+      "row_hit_pct": 95.82949951205912,
+      "outstanding": 0
+    }
+  ],
+  "locality_ratios": {
+    "gem5_time_scattered_to_clustered": 3.457229083578936,
+    "request_count_scattered_to_clustered": 6.73383521539105
+  },
+  "replay_ratios_ddr4_to_hbm2": {
+    "scattered": 1.235019623992711,
+    "clustered": 1.359019852333086
+  },
+  "limitations": [
+    "HBM2 64B gem5 requests represented as 2x32B transactions; DDR4 retains 1x64B",
+    "gem5 time and request sizes are not replayed; frontend issues requests at normalized 1-per-cycle",
+    "single Ramulator modeled channel; not full DDR4 subsystem or complete HBM stack",
+    "two different backends have different channel structures and address mapping",
+    "gem5 ROI timestamp-filtered post-L2 stream includes possible non-data or outstanding traffic",
+    "no gem5 closed-loop coupling; no physical FPGA or CPU memory speedup claimed"
+  ]
+}

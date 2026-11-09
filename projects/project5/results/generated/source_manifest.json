@@ -1,0 +1,9 @@
+{
+  "reference_source": "/home/kaiden_di/Hw_Sw_CoDesign/w8/src/week7_spmv_lab.cpp",
+  "reference_source_sha256": "6e1a31c4e2ba1f35065bf22ee82091d04179ab97d7a5f66d7fb5b9e34df2ad79",
+  "generated_sha256": {
+    "csr_spmv_large_roi.cpp": "448f0523138c513afaf887e888a6ea4e15c693b555e0cc7db8b86e6cbbda162a",
+    "gem5_kernel_roi.py": "b648c4e5f6f97573a109cd500bb6c2331692abeb7a0beb5c4338fb4fa09dc7ce",
+    "week7_spmv_lab.cpp": "6e1a31c4e2ba1f35065bf22ee82091d04179ab97d7a5f66d7fb5b9e34df2ad79"
+  }
+}

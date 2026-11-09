@@ -1,0 +1,36 @@
+{
+  "roi_start_tick": 268004158000,
+  "roi_end_tick": 315389875000,
+  "roi_ticks": 47385717000,
+  "tick_frequency_hz": 1000000000000,
+  "roi_seconds_in_gem5": 0.047385717,
+  "whole_trace_packets_before_roi": 414459,
+  "whole_trace_packets_after_roi": 1044358,
+  "packets_within_roi": 961804,
+  "read": 480956,
+  "write": 2062,
+  "output_records": 483018,
+  "classified_read_bytes": 30781184,
+  "classified_write_bytes": 131968,
+  "command_histogram": {
+    "ReadSharedReq": 480956,
+    "CleanEvict": 478786,
+    "WritebackDirty": 2062
+  },
+  "skipped_commands": {
+    "CleanEvict": 478786
+  },
+  "size_histogram_bytes": {
+    "64": 483018
+  },
+  "first_accepted_tick": 268004173500,
+  "last_accepted_tick": 315389816000,
+  "trace_sha256": "31c31a5c58aedf558e7c839069edb7c288e6e3f6767fde9ed353c475696509fa",
+  "interpretation": [
+    "ROI selected by gem5 packet request timestamp",
+    "post-L2 trace includes instruction fetches and any pre-ROI outstanding requests",
+    "requests issued near ROI end may have responses after ROI",
+    "Ramulator LoadStoreTrace discards gem5 request timestamps and sizes",
+    "single-channel DDR4/HBM2 sensitivity test, not closed-loop SpMV speedup"
+  ]
+}

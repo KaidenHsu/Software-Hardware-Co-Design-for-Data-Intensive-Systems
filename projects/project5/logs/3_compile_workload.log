@@ -1,0 +1,6 @@
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w8/scripts/run_experiments.py --results-dir /home/kaiden_di/Hw_Sw_CoDesign/w8/results --stage build --gem5-root /home/asinha/gem5 --ramulator-root /home/asinha/tools/week8/ramulator2
+
+
+
+$ g++ -std=c++17 -O2 -Wall -Wextra -pedantic -static -I/home/kaiden_di/Hw_Sw_CoDesign/w8/results/generated -I/home/asinha/gem5/include /home/kaiden_di/Hw_Sw_CoDesign/w8/results/generated/csr_spmv_large_roi.cpp /home/asinha/gem5/util/m5/build/x86/out/libm5.a -o /home/kaiden_di/Hw_Sw_CoDesign/w8/build/spmv_large_gem5
+

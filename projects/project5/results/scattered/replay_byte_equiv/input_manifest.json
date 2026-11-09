@@ -1,0 +1,15 @@
+{
+  "gem5_trace_path": "/home/kaiden_di/Hw_Sw_CoDesign/w8/results/scattered/trace/spmv_roi_postL2.trace",
+  "gem5_trace_sha256": "31c31a5c58aedf558e7c839069edb7c288e6e3f6767fde9ed353c475696509fa",
+  "gem5_request_sizes": {
+    "64": 483018
+  },
+  "original_ld": 480956,
+  "original_st": 2062,
+  "ddr4_requests": 483018,
+  "hbm2_requests": 966036,
+  "ddr4_payload_bytes": 30913152,
+  "hbm2_payload_bytes": 30913152,
+  "hbm2_trace_sha256": "d1873147be2767e5224edcb069c21d5bd99e0306a200c6ef80773375401525c6",
+  "remark": "Each aligned original 64B packet split into two 32B HBM pseudochannel transactions. No source modifications."
+}

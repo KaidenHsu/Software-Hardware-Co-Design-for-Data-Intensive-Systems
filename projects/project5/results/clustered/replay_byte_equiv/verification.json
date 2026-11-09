@@ -1,0 +1,41 @@
+{
+  "source_directory": "/home/kaiden_di/Hw_Sw_CoDesign/w8/results/clustered/trace",
+  "source_trace_sha256": "fac59bde22249a50d93ef51a9ee418ac44c3fd52ab53fa72bb7623209854207f",
+  "gem5_roi_ticks": 13706270500,
+  "size_histogram": {
+    "64": 71730
+  },
+  "ddr4": {
+    "requests": 71730,
+    "read": 69776,
+    "write": 1954,
+    "callbacks_completed": 71730,
+    "outstanding": 0,
+    "drain_ticks": 323,
+    "controller_cycles": 382715,
+    "assumed_preset_tCK_ps": 833,
+    "modeled_controller_time_ms": 0.318801595,
+    "avg_read_latency_cycles": 195.931,
+    "row_hits": 69415,
+    "row_misses": 577,
+    "row_conflicts": 1738,
+    "reported_throughput_MBps": 14399.9
+  },
+  "hbm2": {
+    "requests": 143460,
+    "read": 139552,
+    "write": 3908,
+    "callbacks_completed": 143460,
+    "outstanding": 0,
+    "drain_ticks": 110,
+    "controller_cycles": 234582,
+    "assumed_preset_tCK_ps": 1000,
+    "modeled_controller_time_ms": 0.234582,
+    "avg_read_latency_cycles": 70.1788,
+    "row_hits": 137477,
+    "row_misses": 2067,
+    "row_conflicts": 3916,
+    "reported_throughput_MBps": 19569.8
+  },
+  "replay_time_ratio_ddr4_to_hbm2": 1.359019852333086
+}

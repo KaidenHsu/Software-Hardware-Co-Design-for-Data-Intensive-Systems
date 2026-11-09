@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "reference_source_sha256": "6e1a31c4e2ba1f35065bf22ee82091d04179ab97d7a5f66d7fb5b9e34df2ad79",
+  "gem5_oracle": true,
+  "gem5_roi_markers": true,
+  "roi_sim_ticks": 13706270500,
+  "roi_sim_seconds": 0.0137062705,
+  "roi_trace_records": 71730,
+  "trace_sha256": "fac59bde22249a50d93ef51a9ee418ac44c3fd52ab53fa72bb7623209854207f",
+  "ddr4": {
+    "accepted_read": 69776,
+    "accepted_write": 1954,
+    "controller_cycles": 382715,
+    "outstanding": 0
+  },
+  "hbm2": {
+    "accepted_read": 69776,
+    "accepted_write": 1954,
+    "controller_cycles": 107130,
+    "outstanding": 0
+  },
+  "ramulator_callback_summaries": [
+    [
+      "71730",
+      "71730",
+      "0",
+      "323"
+    ],
+    [
+      "71730",
+      "71730",
+      "0",
+      "101"
+    ]
+  ],
+  "limitations": [
+    "ROI selected by gem5 packet request timestamp",
+    "post-L2 trace includes instruction fetches and any pre-ROI outstanding requests",
+    "requests issued near ROI end may have responses after ROI",
+    "Ramulator LoadStoreTrace discards gem5 request timestamps and sizes",
+    "single-channel DDR4/HBM2 sensitivity test, not closed-loop SpMV speedup"
+  ]
+}

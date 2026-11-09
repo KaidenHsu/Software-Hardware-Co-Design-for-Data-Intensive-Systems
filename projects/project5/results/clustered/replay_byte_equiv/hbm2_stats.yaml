@@ -1,0 +1,62 @@
+frontend:
+  impl: LoadStoreTrace
+
+memory_system:
+  impl: GenericDRAM
+  total_num_read_requests: 139552
+  total_num_write_requests: 3908
+  channel_mapper:
+    impl: CacheLineInterleave
+
+
+  controller:
+    impl: HBM12
+    id: Channel 0
+    cycles: 234582
+    row_hits: 137477
+    row_misses: 2067
+    row_conflicts: 3916
+    read_row_hits: 133990
+    read_row_misses: 2023
+    read_row_conflicts: 3539
+    write_row_hits: 3487
+    write_row_misses: 44
+    write_row_conflicts: 377
+    read_row_hits_core_0: 0
+    read_row_misses_core_0: 0
+    read_row_conflicts_core_0: 0
+    num_read_reqs: 139552
+    num_write_reqs: 3908
+    num_maintenance_reqs: 120
+    num_read_reqs_served: 139552
+    num_write_reqs_served: 3908
+    num_maintenance_reqs_served: 120
+    num_read_reqs_forwarded: 0
+    num_write_reqs_coalesced: 0
+    queue_len: 10819940
+    read_queue_len: 7475802
+    write_queue_len: 3340256
+    priority_queue_len: 3882
+    queue_len_avg: 46.1243
+    read_queue_len_avg: 31.8686
+    write_queue_len_avg: 14.2392
+    priority_queue_len_avg: 0.0165486
+    read_latency: 9793599
+    avg_read_latency: 70.1788
+    read_throughput_MBps: 19036.7
+    write_throughput_MBps: 533.101
+    total_throughput_MBps: 19569.8
+    scheduler:
+      impl: FRFCFS
+
+    refresh_manager:
+      impl: AllBank
+
+    row_policy:
+      impl: Open
+
+    addr_mapper:
+      impl: RoBaRaCoCh
+
+
+

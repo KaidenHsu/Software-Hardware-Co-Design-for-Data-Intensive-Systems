@@ -1,0 +1,43 @@
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w8/scripts/run_experiments.py --results-dir /home/kaiden_di/Hw_Sw_CoDesign/w8/results --stage replay --gem5-root /home/asinha/gem5 --ramulator-root /home/asinha/tools/week8/ramulator2
+
+
+
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w8/scripts/replay_request_equivalent.py /home/kaiden_di/Hw_Sw_CoDesign/w8/results/scattered/trace/spmv_roi_postL2.trace --out-dir /home/kaiden_di/Hw_Sw_CoDesign/w8/results/scattered/replay_req_equiv --technology ddr4
+
+[Ramulator::LoadStoreTrace] [[32minfo[0m] Loading trace file /home/kaiden_di/Hw_Sw_CoDesign/w8/results/scattered/trace/spmv_roi_postL2.trace ...
+[Ramulator::LoadStoreTrace] [[32minfo[0m] Loaded 483018 lines.
+[Ramulator::LoadStoreTrace] [[32minfo[0m] W8_DRAIN_PASS submitted=483018 completed=483018 outstanding=0 drain_ticks=351
+DDR4: stats saved to /home/kaiden_di/Hw_Sw_CoDesign/w8/results/scattered/replay_req_equiv/ddr4_stats.yaml
+
+
+
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w8/scripts/replay_request_equivalent.py /home/kaiden_di/Hw_Sw_CoDesign/w8/results/scattered/trace/spmv_roi_postL2.trace --out-dir /home/kaiden_di/Hw_Sw_CoDesign/w8/results/scattered/replay_req_equiv --technology hbm2
+
+[Ramulator::LoadStoreTrace] [[32minfo[0m] Loading trace file /home/kaiden_di/Hw_Sw_CoDesign/w8/results/scattered/trace/spmv_roi_postL2.trace ...
+[Ramulator::LoadStoreTrace] [[32minfo[0m] Loaded 483018 lines.
+[Ramulator::LoadStoreTrace] [[32minfo[0m] W8_DRAIN_PASS submitted=483018 completed=483018 outstanding=0 drain_ticks=247
+HBM2: stats saved to /home/kaiden_di/Hw_Sw_CoDesign/w8/results/scattered/replay_req_equiv/hbm2_stats.yaml
+W8_KERNEL_DDR4_DRAIN=PASS
+W8_KERNEL_HBM2_DRAIN=PASS
+W8_KERNEL_ROI_PIPELINE=PASS
+
+
+
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w8/scripts/replay_request_equivalent.py /home/kaiden_di/Hw_Sw_CoDesign/w8/results/clustered/trace/spmv_roi_postL2.trace --out-dir /home/kaiden_di/Hw_Sw_CoDesign/w8/results/clustered/replay_req_equiv --technology ddr4
+
+[Ramulator::LoadStoreTrace] [[32minfo[0m] Loading trace file /home/kaiden_di/Hw_Sw_CoDesign/w8/results/clustered/trace/spmv_roi_postL2.trace ...
+[Ramulator::LoadStoreTrace] [[32minfo[0m] Loaded 71730 lines.
+[Ramulator::LoadStoreTrace] [[32minfo[0m] W8_DRAIN_PASS submitted=71730 completed=71730 outstanding=0 drain_ticks=323
+DDR4: stats saved to /home/kaiden_di/Hw_Sw_CoDesign/w8/results/clustered/replay_req_equiv/ddr4_stats.yaml
+
+
+
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w8/scripts/replay_request_equivalent.py /home/kaiden_di/Hw_Sw_CoDesign/w8/results/clustered/trace/spmv_roi_postL2.trace --out-dir /home/kaiden_di/Hw_Sw_CoDesign/w8/results/clustered/replay_req_equiv --technology hbm2
+
+[Ramulator::LoadStoreTrace] [[32minfo[0m] Loading trace file /home/kaiden_di/Hw_Sw_CoDesign/w8/results/clustered/trace/spmv_roi_postL2.trace ...
+[Ramulator::LoadStoreTrace] [[32minfo[0m] Loaded 71730 lines.
+[Ramulator::LoadStoreTrace] [[32minfo[0m] W8_DRAIN_PASS submitted=71730 completed=71730 outstanding=0 drain_ticks=101
+HBM2: stats saved to /home/kaiden_di/Hw_Sw_CoDesign/w8/results/clustered/replay_req_equiv/hbm2_stats.yaml
+W8_KERNEL_DDR4_DRAIN=PASS
+W8_KERNEL_HBM2_DRAIN=PASS
+W8_KERNEL_ROI_PIPELINE=PASS

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "python": "/home/asinha/tools/week8/venv/bin/python",
+  "python_version": "3.11.13 (main, Jun  1 2026, 00:00:00) [GCC 11.5.0 20240719 (Red Hat 11.5.0-14)]",
+  "gem5_root": "/home/asinha/gem5",
+  "gem5_commit": "7a2b0e413d06c5ce7097104abef3b1d9eaabca91",
+  "ramulator_root": "/home/asinha/tools/week8/ramulator2",
+  "ramulator_commit": null,
+  "ramulator_module_version": null,
+  "ramulator_module": "/home/asinha/tools/week8/ramulator2/python/ramulator/__init__.py",
+  "drain_patch_sha256": "54957acfa6c72a026a9ee573dd072bc24b53daee0ea5670c54d829e72b8ee9b3",
+  "reference_source_sha256": "6e1a31c4e2ba1f35065bf22ee82091d04179ab97d7a5f66d7fb5b9e34df2ad79",
+  "versions": {
+    "g++": "g++ (GCC) 13.3.1 20240611 (Red Hat 13.3.1-2)"
+  }
+}

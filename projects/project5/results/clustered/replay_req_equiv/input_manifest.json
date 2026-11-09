@@ -1,0 +1,8 @@
+{
+  "records": 71730,
+  "reads": 69776,
+  "writes": 1954,
+  "timing_preserved": false,
+  "size_preserved": false,
+  "front_mem_clock_ratio": "1:1, normalized; not calibrated for time"
+}

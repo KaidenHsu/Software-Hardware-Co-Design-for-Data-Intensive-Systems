@@ -1,0 +1,9 @@
+{
+  "roi_start_tick": 268004158000,
+  "roi_end_tick": 315389875000,
+  "roi_sim_ticks": 47385717000,
+  "gem5_tick_frequency_hz": 1000000000000,
+  "exit_event": "exiting with last active thread context",
+  "roi_scope": "m5_work_begin/end around CSR compute loop",
+  "post_l2_boundary": "request tick in [start,end)"
+}

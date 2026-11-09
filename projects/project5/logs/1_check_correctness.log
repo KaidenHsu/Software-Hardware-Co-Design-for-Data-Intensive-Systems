@@ -1,0 +1,17 @@
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w8/scripts/run_experiments.py --results-dir /home/kaiden_di/Hw_Sw_CoDesign/w8/results --stage baseline --gem5-root /home/asinha/gem5 --ramulator-root /home/asinha/tools/week8/ramulator2
+
+
+
+$ g++ -std=c++17 -O2 -Wall -Wextra -pedantic /home/kaiden_di/Hw_Sw_CoDesign/w8/src/week7_spmv_lab.cpp -o /home/kaiden_di/Hw_Sw_CoDesign/w8/build/week7_baseline
+
+
+
+$ /home/kaiden_di/Hw_Sw_CoDesign/w8/build/week7_baseline --mode baseline
+
+ORACLE = PASS; y = [6, 6, -1, 15]
+nnz = 6 row_lengths = [2, 1, 2, 1] unique_x = 5 total_gathers = 6
+row_length_histogram = {1: 2, 2: 2}
+x_cache_entries= 0  hits= 0  misses= 6  miss_fraction=1.000
+x_cache_entries= 2  hits= 0  misses= 6  miss_fraction=1.000
+x_cache_entries= 4  hits= 1  misses= 5  miss_fraction=0.833
+x_cache_entries= 8  hits= 1  misses= 5  miss_fraction=0.833
