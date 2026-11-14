@@ -1,4 +1,4 @@
-# Week 9.1 CSR SpMV: AXI4-Stream Accelerator DDR3 Trace Replay and Row-Buffer Analysis with Ramulator
+# Project 6.1 CSR SpMV: AXI4-Stream Accelerator DDR3 Trace Replay and Row-Buffer Analysis with Ramulator
 
 ## 1. Introduction
 
