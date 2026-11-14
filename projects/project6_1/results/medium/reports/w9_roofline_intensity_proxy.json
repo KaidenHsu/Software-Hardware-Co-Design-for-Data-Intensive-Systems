@@ -1,0 +1,14 @@
+{
+  "kernel": "CSR SpMV, signed integer multiply + add",
+  "math_intops": 16384,
+  "accelerator_dma_input_output_bytes_minimum": 102416,
+  "arithmetic_intensity_intops_per_dma_byte": 0.15997500390563973,
+  "ideal_core_cycles_excluding_stalls_and_external_data_movement": 23554,
+  "assumed_clock_mhz": 100,
+  "ideal_core_intops_per_second_at_assumed_clock": 69559310.52050607,
+  "caveats": [
+    "Not floating-point FLOP/s.",
+    "DMA minimum excludes software bucketing, PS memory touches, DDR3 command overhead, and cache maintenance.",
+    "This is a model intensity, not a measured platform Roofline; compare with separately measured sustained bandwidth and actual FPGA execution."
+  ]
+}

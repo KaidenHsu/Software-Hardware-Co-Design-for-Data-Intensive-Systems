@@ -1,4 +1,4 @@
-# Project 5: CSR SpMV: DDR4 vs HBM2 Off-chip Memory Access Comparison using Gem5 and Ramulator
+# Project 5.1 CSR SpMV: DDR4 vs HBM2 Off-chip Memory Access Comparison with Gem5 and Ramulator
 
 ## 1. Introduction
 

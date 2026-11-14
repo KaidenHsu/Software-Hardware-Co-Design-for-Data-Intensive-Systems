@@ -1,0 +1,310 @@
+$ source /opt/rh/gcc-toolset-13/enable
+
+
+
+
+$ source /home/kaiden_di/Hw_Sw_CoDesign/w9/config/default.env
+
+
+
+
+$ mkdir -p /home/kaiden_di/Hw_Sw_CoDesign/w9/results
+
+
+
+
+$ sha256sum /home/kaiden_di/Hw_Sw_CoDesign/w9/config/default.env /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/model_workload.py /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/prep_simulation_files.py /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/run_experiments.py /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/run_week9_spmv.py /home/kaiden_di/Hw_Sw_CoDesign/w9/rtl/week9_spmv_axis.sv /home/kaiden_di/Hw_Sw_CoDesign/w9/tb/tb_week9_file.sv /home/kaiden_di/Hw_Sw_CoDesign/w9/tb/tb_week9_spmv_axis.sv /home/kaiden_di/Hw_Sw_CoDesign/w9/templates/week9_ramulator_ddr3.py
+
+6b2acb6b808d90a46aec5b7a29c82107204da5f5c7a726fddab5ec3bcd8e4b94  /home/kaiden_di/Hw_Sw_CoDesign/w9/config/default.env
+4327409897242e91c0d6bbfcdddaf22ef4d2b68296c2920259029780c98f67e1  /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/model_workload.py
+fa48c6885faa0552b5514bded1ea0103c057148d8c47da8d3d09f1f7feacf18b  /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/prep_simulation_files.py
+91205008b42fc01d3526d4b5d7a275c1446ec4510aebc47018f8fc75c3ac2a73  /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/run_experiments.py
+82e33b01d584b53fdf3fd5f878a386b0a98e9f56233f01431ace78e727a20d85  /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/run_week9_spmv.py
+78b94132f798e05fe5ef81f2f2769b799873ec1c5360bc0e5c64b29c9d0a1c14  /home/kaiden_di/Hw_Sw_CoDesign/w9/rtl/week9_spmv_axis.sv
+9facb4bce7e6cba63ae2c0b055f448bd81f35d6a35811c8446c088546976e18f  /home/kaiden_di/Hw_Sw_CoDesign/w9/tb/tb_week9_file.sv
+64e277a1c7388a071497b9df6f3c1c6249c0ccd54f7b8e5ff5dd1749c04c48a5  /home/kaiden_di/Hw_Sw_CoDesign/w9/tb/tb_week9_spmv_axis.sv
+b16800d3c80b0b2d65b0a40ee8f5c42fd5c0c8bf9a2ecd7773713cd58c467367  /home/kaiden_di/Hw_Sw_CoDesign/w9/templates/week9_ramulator_ddr3.py
+
+
+
+$ /home/asinha/tools/week8/venv/bin/python --version
+
+Python 3.11.13
+
+
+
+$ g++ --version
+
+g++ (GCC) 13.3.1 20240611 (Red Hat 13.3.1-2)
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+
+
+$ verilator --version
+
+Verilator 5.022 2024-02-24 rev fedora-5.022
+
+
+
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/run_week9_spmv.py --selftest
+
+W9_PYTHON_SELFTEST=PASS tiny=[6,6,-1,15], 8 tiling cases verified
+
+
+
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/run_week9_spmv.py --make --tiny --out /home/kaiden_di/Hw_Sw_CoDesign/w9/results/tiny
+
+W9_GENERATE=PASS {
+  "rows": 4,
+  "nonzeros_per_row": "varies",
+  "nnz": 6,
+  "cols": 5,
+  "pattern": "Week 7 original exact oracle",
+  "tile": 8,
+  "macs": 6,
+  "x_loads": 5,
+  "command_count": 13,
+  "command_bytes": 104,
+  "y_output_bytes": 16,
+  "optimistic_core_cycles": 31,
+  "dram_microbenchmark_records": 4096,
+  "dram_microbenchmark_logical_read_bytes": 65536,
+  "dram_microbenchmark_strides_B": {
+    "sequential": 16,
+    "strided": 8192
+  },
+  "dram_microbenchmark_caveat": "Same number of 16B reads and unique addresses, different footprints and bank/row mapping; no CPU cache simulation.",
+  "ddr3_proxy_line_bytes": 16,
+  "tiled_dma_read_requests_16B": 7,
+  "tiled_dma_write_requests_16B": 1,
+  "ddr3_proxy_read_bytes_with_padding": 112,
+  "ddr3_proxy_write_bytes_with_padding": 16,
+  "trace_caveat": "Synthetic contiguous PS DMA reads/writes, NOT measured DDR3 or AXI traffic; independent normalized-load Ramulator replay",
+  "sha256": {
+    "inputs/dma_commands.bin": "a461ff50058fb4289921e5e14b6cef74bcbc4520fb5be56d0d376c3cc4929bca",
+    "inputs/expected_y.bin": "2411431daf90a72ba202e47d22081f9bee9998f20bb1152c9460fbeb626bc711",
+    "traces/tiled_dma_16B.ldst": "2c7913e8c22a621afbff41e152a54a701685dfcda8d9134f261eaac7fe54b7e6"
+  }
+}
+W9_OUT= /home/kaiden_di/Hw_Sw_CoDesign/w9/results/tiny
+
+
+
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/run_week9_spmv.py --make --rows 1024 --nnz-per-row 8 --cols 4096 --pattern scattered --tile 2048 --out /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium
+
+W9_GENERATE=PASS {
+  "rows": 1024,
+  "nonzeros_per_row": 8,
+  "nnz": 8192,
+  "cols": 4096,
+  "pattern": "scattered",
+  "tile": 2048,
+  "tiles_nonempty": 2,
+  "x_loads": 4096,
+  "x_unique_16B_lines": 1024,
+  "macs": 8192,
+  "command_count": 12290,
+  "command_bytes": 98320,
+  "y_output_bytes": 4096,
+  "optimistic_core_cycles": 23554,
+  "optimistic_core_ms_at_100MHz": 0.23554,
+  "x_active_elements": 4096,
+  "numeric_contract": "int16 x/val, exact int32 y",
+  "dram_microbenchmark_records": 4096,
+  "dram_microbenchmark_logical_read_bytes": 65536,
+  "dram_microbenchmark_strides_B": {
+    "sequential": 16,
+    "strided": 8192
+  },
+  "dram_microbenchmark_caveat": "Same number of 16B reads and unique addresses, different footprints and bank/row mapping; no CPU cache simulation.",
+  "ddr3_proxy_line_bytes": 16,
+  "tiled_dma_read_requests_16B": 6145,
+  "tiled_dma_write_requests_16B": 256,
+  "ddr3_proxy_read_bytes_with_padding": 98320,
+  "ddr3_proxy_write_bytes_with_padding": 4096,
+  "trace_caveat": "Synthetic contiguous PS DMA reads/writes, NOT measured DDR3 or AXI traffic; independent normalized-load Ramulator replay",
+  "sha256": {
+    "inputs/dma_commands.bin": "9d017a835ecbf2cde1d40f37137431dd578715c3573b303417272f312fc0b9f6",
+    "inputs/expected_y.bin": "93f7062010e584359385ccf97105705cea0b0414cd7bea43ec08616716183fe1",
+    "traces/tiled_dma_16B.ldst": "09b64e17e1b6ed51da0533a03803152ffd464ee7a01518f89e331b5fd10860a3"
+  }
+}
+W9_OUT= /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium
+
+
+
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/run_week9_spmv.py --dram-hierarchy --out /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium
+
+[Ramulator::LoadStoreTrace] [[32minfo[0m] Loading trace file /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/traces/w9_dram_sequential_16B.ldst ...
+[Ramulator::LoadStoreTrace] [[32minfo[0m] Loaded 4096 lines.
+[Ramulator::LoadStoreTrace] [[32minfo[0m] W8_DRAIN_PASS submitted=4096 completed=4096 outstanding=0 drain_ticks=138
+W9_RAMULATOR_RUN_RETURNED trace= /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/traces/w9_dram_sequential_16B.ldst records= 4096 tCK_ps=1875 stats= /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/reports/dram/w9_dram_sequential_16B.ramulator_stats.yaml metrics= /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/reports/dram/w9_dram_sequential_16B.ramulator_metrics.json
+IMPORTANT: verify accepted/completed/outstanding counts in patched Ramulator stats; no end-to-end FPGA speedup claim
+[Ramulator::LoadStoreTrace] [[32minfo[0m] Loading trace file /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/traces/w9_dram_strided_16B.ldst ...
+[Ramulator::LoadStoreTrace] [[32minfo[0m] Loaded 4096 lines.
+[Ramulator::LoadStoreTrace] [[32minfo[0m] W8_DRAIN_PASS submitted=4096 completed=4096 outstanding=0 drain_ticks=449
+W9_RAMULATOR_RUN_RETURNED trace= /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/traces/w9_dram_strided_16B.ldst records= 4096 tCK_ps=1875 stats= /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/reports/dram/w9_dram_strided_16B.ramulator_stats.yaml metrics= /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/reports/dram/w9_dram_strided_16B.ramulator_metrics.json
+IMPORTANT: verify accepted/completed/outstanding counts in patched Ramulator stats; no end-to-end FPGA speedup claim
+W9_DRAM_HIERARCHY_REPLAY_COMPLETED=YES (inspect controller metrics and drain)
+
+
+
+$ cat /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/reports/dram/w9_dram_sequential_16B.ramulator_metrics.json
+
+{
+  "source_trace": "/home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/traces/w9_dram_sequential_16B.ldst",
+  "source_requests": 4096,
+  "source_reads": 4096,
+  "source_writes": 0,
+  "controller": "DDR3_4Gb_x16 / DDR3_1066F / 1 channel / FRFCFS / Open / RoBaRaCoCh",
+  "assumed_tCK_ps": 1875,
+  "note": "Standalone normalized-injection controller replay; not PYNQ-Z2 or FPGA end-to-end time.",
+  "cycles": 17011.0,
+  "avg_read_latency": 143.243164,
+  "num_read_reqs": 4096.0,
+  "num_write_reqs": 0.0,
+  "row_hits": 4059.0,
+  "row_misses": 32.0,
+  "row_conflicts": 5.0,
+  "read_queue_len_avg": 31.826759,
+  "write_queue_len_avg": 0.0,
+  "controller_modeled_ms": 0.031895625,
+  "row_hit_fraction_of_classified_accesses": 0.990966796875
+}
+
+
+
+$ cat /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/reports/dram/w9_dram_strided_16B.ramulator_metrics.json
+
+{
+  "source_trace": "/home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/traces/w9_dram_strided_16B.ldst",
+  "source_requests": 4096,
+  "source_reads": 4096,
+  "source_writes": 0,
+  "controller": "DDR3_4Gb_x16 / DDR3_1066F / 1 channel / FRFCFS / Open / RoBaRaCoCh",
+  "assumed_tCK_ps": 1875,
+  "note": "Standalone normalized-injection controller replay; not PYNQ-Z2 or FPGA end-to-end time.",
+  "cycles": 57209.0,
+  "avg_read_latency": 463.0625,
+  "num_read_reqs": 4096.0,
+  "num_write_reqs": 0.0,
+  "row_hits": 0.0,
+  "row_misses": 20.0,
+  "row_conflicts": 4076.0,
+  "read_queue_len_avg": 31.865196,
+  "write_queue_len_avg": 0.0,
+  "controller_modeled_ms": 0.107266875,
+  "row_hit_fraction_of_classified_accesses": 0.0
+}
+
+
+
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/run_week9_spmv.py --roofline --out /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium
+
+W9_INTENSITY_PROXY=PASS {
+  "kernel": "CSR SpMV, signed integer multiply + add",
+  "math_intops": 16384,
+  "accelerator_dma_input_output_bytes_minimum": 102416,
+  "arithmetic_intensity_intops_per_dma_byte": 0.15997500390563973,
+  "ideal_core_cycles_excluding_stalls_and_external_data_movement": 23554,
+  "assumed_clock_mhz": 100,
+  "ideal_core_intops_per_second_at_assumed_clock": 69559310.52050607,
+  "caveats": [
+    "Not floating-point FLOP/s.",
+    "DMA minimum excludes software bucketing, PS memory touches, DDR3 command overhead, and cache maintenance.",
+    "This is a model intensity, not a measured platform Roofline; compare with separately measured sustained bandwidth and actual FPGA execution."
+  ]
+}
+
+
+
+$ cat /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/reports/intensity/w9_roofline_intensity_proxy.json
+
+{
+  "kernel": "CSR SpMV, signed integer multiply + add",
+  "math_intops": 16384,
+  "accelerator_dma_input_output_bytes_minimum": 102416,
+  "arithmetic_intensity_intops_per_dma_byte": 0.15997500390563973,
+  "ideal_core_cycles_excluding_stalls_and_external_data_movement": 23554,
+  "assumed_clock_mhz": 100,
+  "ideal_core_intops_per_second_at_assumed_clock": 69559310.52050607,
+  "caveats": [
+    "Not floating-point FLOP/s.",
+    "DMA minimum excludes software bucketing, PS memory touches, DDR3 command overhead, and cache maintenance.",
+    "This is a model intensity, not a measured platform Roofline; compare with separately measured sustained bandwidth and actual FPGA execution."
+  ]
+}
+
+
+
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/run_week9_spmv.py --out /home/kaiden_di/Hw_Sw_CoDesign/w9/results/tiny --verilator
+
+make: Entering directory '/home/kaiden_di/Hw_Sw_CoDesign/w9/results/tiny/build'
+g++ -Os  -I. -Wall -Wextra -Wfloat-conversion -Wlogical-op -Werror -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+g++ -Os  -I. -Wall -Wextra -Wfloat-conversion -Wlogical-op -Werror -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_timing.o /usr/share/verilator/include/verilated_timing.cpp
+g++ -Os  -I. -Wall -Wextra -Wfloat-conversion -Wlogical-op -Werror -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_threads.o /usr/share/verilator/include/verilated_threads.cpp
+/usr/bin/python3 /usr/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vtb_spmv_axis.cpp Vtb_spmv_axis___024root__DepSet_h320fb30a__0.cpp Vtb_spmv_axis___024root__DepSet_hc8af1b76__0.cpp Vtb_spmv_axis__main.cpp Vtb_spmv_axis___024root__Slow.cpp Vtb_spmv_axis___024root__DepSet_h320fb30a__0__Slow.cpp Vtb_spmv_axis___024root__DepSet_hc8af1b76__0__Slow.cpp Vtb_spmv_axis__Syms.cpp > Vtb_spmv_axis__ALL.cpp
+g++ -Os  -I. -Wall -Wextra -Wfloat-conversion -Wlogical-op -Werror -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o Vtb_spmv_axis__ALL.o Vtb_spmv_axis__ALL.cpp
+echo "" > Vtb_spmv_axis__ALL.verilator_deplist.tmp
+Archive ar -rcs Vtb_spmv_axis__ALL.a Vtb_spmv_axis__ALL.o
+g++    verilated.o verilated_timing.o verilated_threads.o Vtb_spmv_axis__ALL.a    -pthread -lpthread   -o Vtb_spmv_axis
+rm Vtb_spmv_axis__ALL.verilator_deplist.tmp
+make: Leaving directory '/home/kaiden_di/Hw_Sw_CoDesign/w9/results/tiny/build'
+W9_VERILATOR_SPMV=PASS rows=4 mac=6 y=[6,6,-1,15] cycles=39
+- /home/kaiden_di/Hw_Sw_CoDesign/w9/results/tiny/sources/tb_week9_spmv_axis.sv:113: Verilog $finish
+
+
+
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/run_week9_spmv.py --out /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium --verilator-full
+
+make: Entering directory '/home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/build'
+g++ -Os  -I. -Wall -Wextra -Wfloat-conversion -Wlogical-op -Werror -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+g++ -Os  -I. -Wall -Wextra -Wfloat-conversion -Wlogical-op -Werror -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_timing.o /usr/share/verilator/include/verilated_timing.cpp
+g++ -Os  -I. -Wall -Wextra -Wfloat-conversion -Wlogical-op -Werror -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_threads.o /usr/share/verilator/include/verilated_threads.cpp
+/usr/bin/python3 /usr/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vtb_spmv_file.cpp Vtb_spmv_file___024root__DepSet_hdb521c3f__0.cpp Vtb_spmv_file___024root__DepSet_h43923ce4__0.cpp Vtb_spmv_file__main.cpp Vtb_spmv_file___024root__Slow.cpp Vtb_spmv_file___024root__DepSet_hdb521c3f__0__Slow.cpp Vtb_spmv_file___024root__DepSet_h43923ce4__0__Slow.cpp Vtb_spmv_file__Syms.cpp > Vtb_spmv_file__ALL.cpp
+g++ -Os  -I. -Wall -Wextra -Wfloat-conversion -Wlogical-op -Werror -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o Vtb_spmv_file__ALL.o Vtb_spmv_file__ALL.cpp
+echo "" > Vtb_spmv_file__ALL.verilator_deplist.tmp
+Archive ar -rcs Vtb_spmv_file__ALL.a Vtb_spmv_file__ALL.o
+g++    verilated.o verilated_timing.o verilated_threads.o Vtb_spmv_file__ALL.a    -pthread -lpthread   -o Vtb_spmv_file
+rm Vtb_spmv_file__ALL.verilator_deplist.tmp
+make: Leaving directory '/home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/build'
+W9_FILE_RTL=PASS rows=1024 macs=8192 xloads=4096 cycles=23896
+- /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/sources/tb_week9_file.sv:70: Verilog $finish
+
+
+
+$ /home/asinha/tools/week8/venv/bin/python /home/kaiden_di/Hw_Sw_CoDesign/w9/scripts/run_week9_spmv.py --ramulator --out /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium
+
+[Ramulator::LoadStoreTrace] [[32minfo[0m] Loading trace file /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/traces/tiled_dma_16B.ldst ...
+[Ramulator::LoadStoreTrace] [[32minfo[0m] Loaded 6401 lines.
+[Ramulator::LoadStoreTrace] [[32minfo[0m] W8_DRAIN_PASS submitted=6401 completed=6401 outstanding=0 drain_ticks=244
+W9_RAMULATOR_RUN_RETURNED trace= /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/traces/tiled_dma_16B.ldst records= 6401 tCK_ps=1875 stats= /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/reports/dram/tiled_dma_16B.ramulator_stats.yaml metrics= /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/reports/dram/tiled_dma_16B.ramulator_metrics.json
+IMPORTANT: verify accepted/completed/outstanding counts in patched Ramulator stats; no end-to-end FPGA speedup claim
+
+
+
+$ cat /home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/reports/dram/tiled_dma_16B.ramulator_metrics.json
+
+{
+  "source_trace": "/home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/traces/tiled_dma_16B.ldst",
+  "source_requests": 6401,
+  "source_reads": 6145,
+  "source_writes": 256,
+  "controller": "DDR3_4Gb_x16 / DDR3_1066F / 1 channel / FRFCFS / Open / RoBaRaCoCh",
+  "assumed_tCK_ps": 1875,
+  "note": "Standalone normalized-injection controller replay; not PYNQ-Z2 or FPGA end-to-end time.",
+  "cycles": 26552.0,
+  "avg_read_latency": 147.770706,
+  "num_read_reqs": 6145.0,
+  "num_write_reqs": 256.0,
+  "row_hits": 6343.0,
+  "row_misses": 50.0,
+  "row_conflicts": 8.0,
+  "read_queue_len_avg": 31.638294,
+  "write_queue_len_avg": 1.21053,
+  "controller_modeled_ms": 0.049785,
+  "row_hit_fraction_of_classified_accesses": 0.9909389157944071
+}

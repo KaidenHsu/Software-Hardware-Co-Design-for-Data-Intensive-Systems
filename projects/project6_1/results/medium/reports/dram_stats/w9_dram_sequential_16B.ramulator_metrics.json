@@ -1,0 +1,20 @@
+{
+  "source_trace": "/home/kaiden_di/Hw_Sw_CoDesign/w9/results/medium/traces/w9_dram_sequential_16B.ldst",
+  "source_requests": 4096,
+  "source_reads": 4096,
+  "source_writes": 0,
+  "controller": "DDR3_4Gb_x16 / DDR3_1066F / 1 channel / FRFCFS / Open / RoBaRaCoCh",
+  "assumed_tCK_ps": 1875,
+  "note": "Standalone normalized-injection controller replay; not PYNQ-Z2 or FPGA end-to-end time.",
+  "cycles": 17011.0,
+  "avg_read_latency": 143.243164,
+  "num_read_reqs": 4096.0,
+  "num_write_reqs": 0.0,
+  "row_hits": 4059.0,
+  "row_misses": 32.0,
+  "row_conflicts": 5.0,
+  "read_queue_len_avg": 31.826759,
+  "write_queue_len_avg": 0.0,
+  "controller_modeled_ms": 0.031895625,
+  "row_hit_fraction_of_classified_accesses": 0.990966796875
+}

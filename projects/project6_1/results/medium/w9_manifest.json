@@ -1,0 +1,37 @@
+{
+  "rows": 1024,
+  "nonzeros_per_row": 8,
+  "nnz": 8192,
+  "cols": 4096,
+  "pattern": "scattered",
+  "tile": 2048,
+  "tiles_nonempty": 2,
+  "x_loads": 4096,
+  "x_unique_16B_lines": 1024,
+  "macs": 8192,
+  "command_count": 12290,
+  "command_bytes": 98320,
+  "y_output_bytes": 4096,
+  "optimistic_core_cycles": 23554,
+  "optimistic_core_ms_at_100MHz": 0.23554,
+  "x_active_elements": 4096,
+  "numeric_contract": "int16 x/val, exact int32 y",
+  "dram_microbenchmark_records": 4096,
+  "dram_microbenchmark_logical_read_bytes": 65536,
+  "dram_microbenchmark_strides_B": {
+    "sequential": 16,
+    "strided": 8192
+  },
+  "dram_microbenchmark_caveat": "Same number of 16B reads and unique addresses, different footprints and bank/row mapping; no CPU cache simulation.",
+  "ddr3_proxy_line_bytes": 16,
+  "tiled_dma_read_requests_16B": 6145,
+  "tiled_dma_write_requests_16B": 256,
+  "ddr3_proxy_read_bytes_with_padding": 98320,
+  "ddr3_proxy_write_bytes_with_padding": 4096,
+  "trace_caveat": "Synthetic contiguous PS DMA reads/writes, NOT measured DDR3 or AXI traffic; independent normalized-load Ramulator replay",
+  "sha256": {
+    "inputs/dma_commands.bin": "9d017a835ecbf2cde1d40f37137431dd578715c3573b303417272f312fc0b9f6",
+    "inputs/expected_y.bin": "93f7062010e584359385ccf97105705cea0b0414cd7bea43ec08616716183fe1",
+    "traces/tiled_dma_16B.ldst": "09b64e17e1b6ed51da0533a03803152ffd464ee7a01518f89e331b5fd10860a3"
+  }
+}

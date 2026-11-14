@@ -1,0 +1,32 @@
+{
+  "rows": 4,
+  "nonzeros_per_row": "varies",
+  "nnz": 6,
+  "cols": 5,
+  "pattern": "Week 7 original exact oracle",
+  "tile": 8,
+  "macs": 6,
+  "x_loads": 5,
+  "command_count": 13,
+  "command_bytes": 104,
+  "y_output_bytes": 16,
+  "optimistic_core_cycles": 31,
+  "dram_microbenchmark_records": 4096,
+  "dram_microbenchmark_logical_read_bytes": 65536,
+  "dram_microbenchmark_strides_B": {
+    "sequential": 16,
+    "strided": 8192
+  },
+  "dram_microbenchmark_caveat": "Same number of 16B reads and unique addresses, different footprints and bank/row mapping; no CPU cache simulation.",
+  "ddr3_proxy_line_bytes": 16,
+  "tiled_dma_read_requests_16B": 7,
+  "tiled_dma_write_requests_16B": 1,
+  "ddr3_proxy_read_bytes_with_padding": 112,
+  "ddr3_proxy_write_bytes_with_padding": 16,
+  "trace_caveat": "Synthetic contiguous PS DMA reads/writes, NOT measured DDR3 or AXI traffic; independent normalized-load Ramulator replay",
+  "sha256": {
+    "inputs/dma_commands.bin": "a461ff50058fb4289921e5e14b6cef74bcbc4520fb5be56d0d376c3cc4929bca",
+    "inputs/expected_y.bin": "2411431daf90a72ba202e47d22081f9bee9998f20bb1152c9460fbeb626bc711",
+    "traces/tiled_dma_16B.ldst": "2c7913e8c22a621afbff41e152a54a701685dfcda8d9134f261eaac7fe54b7e6"
+  }
+}
