@@ -10,8 +10,10 @@ Projects | Description
 [Project 2][2]| CSR SpMV: Profiling Access Locality Impact with Hotspot Analysis and Working Set Sweep
 [Project 3][3]| CSR SpMM: Profiling Access Locality Impact with Timing Markers
 [Project 4][4]| CSR SpMM: Profiling Access Locality Impact with Hotspot Analysis and Working Set Sweep
-[Project 5.1][5_1]| CSR SpMV: DDR4 vs HBM2 Off-chip Memory Access Comparison with Gem5 and Ramulator
-[Project 6.1][6_1]| CSR SpMV: AXI4-Stream Accelerator DDR3 Trace Replay and Row-Buffer Analysis with Ramulator
+[Project 5-1][5_1]| CSR SpMV: DDR4 vs HBM2 Off-chip Memory Access Comparison with Gem5 and Ramulator
+[Project 6-1][6_1]| CSR SpMV: AXI4-Stream Accelerator DDR3 Trace Replay and Row-Buffer Analysis with Ramulator
+[Project 7-1][7_1]| Dual-Issue MAC Scheduling with Row Hazards and Bank Conflicts
+[Project 7-1][7_2]| CSR SpMV: Load Balancing across Three CSR Partitioning Schemes
 
 [1]: projects/project1/
 [2]: projects/project2/
@@ -19,5 +21,7 @@ Projects | Description
 [4]: projects/project4/
 [5_1]: projects/project5_1/
 [6_1]: projects/project6_1/
+[7_1]: projects/project7_1/
+[6_1]: projects/project7_2/
 
 <p align="center"><img src="images/banner.png" alt="banner" /></p>

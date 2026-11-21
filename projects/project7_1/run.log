@@ -1,0 +1,14 @@
+$ verilator --binary --timing -Wno-fatal --top-module tb_scheduler --Mdir /home/kaiden_di/Hw_Sw_CoDesign/w11/build -j 2 /home/kaiden_di/Hw_Sw_CoDesign/w11/rtl/dual_issue_scheduler.sv /home/kaiden_di/Hw_Sw_CoDesign/w11/tb/tb_scheduler.sv
+make: Entering directory '/home/kaiden_di/Hw_Sw_CoDesign/w11/build'
+make: Nothing to be done for 'default'.
+make: Leaving directory '/home/kaiden_di/Hw_Sw_CoDesign/w11/build'
+
+
+
+$ /home/kaiden_di/Hw_Sw_CoDesign/w11/build/Vtb_scheduler
+PASS slide8_combined            cycles=7 MACs=8 row_stall=2 bank_conflict=1
+PASS same_bank_rows             cycles=6 MACs=6 row_stall=0 bank_conflict=5
+PASS repeated_row               cycles=7 MACs=4 row_stall=6 bank_conflict=0
+PASS source_gaps                cycles=7 MACs=8 row_stall=0 bank_conflict=1
+ALL FOUR DIRECTED TESTS PASS
+- /home/kaiden_di/Hw_Sw_CoDesign/w11/tb/tb_scheduler.sv:181: Verilog $finish
