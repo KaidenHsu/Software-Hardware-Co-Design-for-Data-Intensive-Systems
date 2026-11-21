@@ -1,4 +1,4 @@
-# W8-1. CSR SpMV: Profiling Access Locality Impact with Hotspot Analysis and Working Set Sweep
+# W6-2. CSR SpMV: Profiling Access Locality Impact with Hotspot Analysis and Working Set Sweep
 
 ## 1. Introduction
 

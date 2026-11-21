@@ -1,4 +1,4 @@
-# W7-2. CSR SpMM: Profiling Access Locality Impact with Timing Markers
+# W6-3. CSR SpMM: Profiling Access Locality Impact with Timing Markers
 
 ## 1. Introduction
 

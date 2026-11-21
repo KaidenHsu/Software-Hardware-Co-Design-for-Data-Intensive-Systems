@@ -1,4 +1,4 @@
-# W11-1. Dual-Issue MAC Scheduling with Row Hazards and Bank Conflicts
+# W11-1. Dual-Issue Accelerator MAC Scheduling with Row Hazards and Bank Conflicts
 
 ## 1. Introduction
 

@@ -6,19 +6,19 @@
 
 Projects | Description
 --------|:--------
-[W7-1][w7_1]| CSR SpMV: Memory Footprint and Cache Mapping Analysis
-[W7-2][w7_2]| CSR SpMM: Profiling Access Locality Impact with Timing Markers
-[W8-1][w8_1]| CSR SpMV: Profiling Access Locality Impact with Hotspot Analysis and Working Set Sweep
-[W8-2][w8_2]| CSR SpMM: Profiling Access Locality Impact with Hotspot Analysis and Working Set Sweep
+[W6-1][w6_1]| CSR SpMV: Memory Footprint and Cache Mapping Analysis
+[W6-2][w6_2]| CSR SpMV: Profiling Access Locality Impact with Hotspot Analysis and Working Set Sweep
+[W6-3][w6_3]| CSR SpMM: Profiling Access Locality Impact with Timing Markers
+[W6-4][w6_4]| CSR SpMM: Profiling Access Locality Impact with Hotspot Analysis and Working Set Sweep
 [W8][w8]| CSR SpMV: DDR4 vs HBM2 Off-chip Memory Access Comparison with Gem5 and Ramulator
 [W9][w9]| CSR SpMV: AXI4-Stream Accelerator DDR3 Trace Replay and Row-Buffer Analysis with Ramulator
-[W11-1][w11_1]| Dual-Issue MAC Scheduling with Row Hazards and Bank Conflicts
-[W11-2][w11_2]| CSR SpMV: Load Balancing across Three CSR Partitioning Schemes
+[W11-1][w11_1]| Dual-Issue Accelerator MAC Scheduling with Row Hazards and Bank Conflicts
+[W11-2][w11_2]| CSR SpMV: Worker Load Balancing across Partitioning Schemes
 
-[w7_1]: projects/w7_1/
-[w7_2]: projects/w7_2/
-[w8_1]: projects/w8_1/
-[w8_2]: projects/w8_2/
+[w6_1]: projects/w6_1/
+[w6_2]: projects/w6_2/
+[w6_3]: projects/w6_3/
+[w6_4]: projects/w6_4/
 [w8]: projects/w8/
 [w9]: projects/w9/
 [w11_1]: projects/w11_1/

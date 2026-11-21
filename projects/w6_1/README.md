@@ -1,4 +1,4 @@
-# W7-1. CSR SpMV: Memory Footprint and Cache Mapping Analysis
+# W6-1. CSR SpMV: Memory Footprint and Cache Mapping Analysis
 
 ## 1. Introduction
 
