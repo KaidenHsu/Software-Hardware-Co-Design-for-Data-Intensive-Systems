@@ -22,6 +22,6 @@ Projects | Description
 [5_1]: projects/project5_1/
 [6_1]: projects/project6_1/
 [7_1]: projects/project7_1/
-[6_1]: projects/project7_2/
+[7_2]: projects/project7_2/
 
 <p align="center"><img src="images/banner.png" alt="banner" /></p>
